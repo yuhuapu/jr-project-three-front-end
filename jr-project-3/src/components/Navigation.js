@@ -1,17 +1,26 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 function Navigation() {
     return (
         //Main menu bar
             <nav className = "navbar navbar-expand-xl|lg|md|sm bg-light">
-                <a className = "navbar-brand" href = "*">Home</a>
+                <Link to = "/">
+                <p className = "navbar-brand">Home</p>
+                </Link>
                 <ul className = "nav nav-pills">
+                    <Link to = "/signup">
                     <li className= "nav-item">
-                        <a className= "nav-link" href = "*">Signup</a>
+                        <p className= "nav-link">Signup</p>
                     </li>
+                    </Link>
+
+                    {/* Link need to be changed later, admin is for test only */}
+                    <Link to = "/admin">
                     <li className= "nav-item">
-                        <a className= "nav-link" href = "*">Login</a>
+                        <p className= "nav-link">Login</p>
                     </li>
+                    </Link>
                 </ul>
             </nav>
     );
