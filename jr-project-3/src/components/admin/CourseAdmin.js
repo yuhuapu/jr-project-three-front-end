@@ -1,8 +1,14 @@
 import React from 'react';
+import Coursecard from '../Coursecard';
 
-function CourseAdmin () {
-    return(
-        <p>this is the course admin section</p>
+function CourseAdmin() {
+    return (
+        <div className="card-deck">
+            <Coursecard />
+            <Coursecard />
+            <Coursecard />
+            <Coursecard />
+        </div>
     );
 }
 

@@ -7,6 +7,7 @@ import Main from './components/Main';
 import Footer from './components/Footer';
 import Admin from './components/admin/Admin';
 import Signup from './components/Signup';
+import Login from './components/Login';
 
 
 class App extends React.Component {
@@ -17,8 +18,8 @@ class App extends React.Component {
           <Switch>
             <Route path = "/" exact component={Main} />
             <Route path = "/signup" component = {Signup}/>
-
-            {/* The link below need to be changed*/}
+            <Route path = "/login" component={Login} />
+            {/*This link is set to be testing the static page for admin page*/}
             <Route path = "/admin" component={Admin} />
           </Switch>
         <Footer />

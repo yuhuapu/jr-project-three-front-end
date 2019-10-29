@@ -15,12 +15,19 @@ function Navigation() {
                     </li>
                     </Link>
 
-                    {/* Link need to be changed later, admin is for test only */}
-                    <Link to = "/admin">
+                    <Link to = "/login">
                     <li className= "nav-item">
                         <p className= "nav-link">Login</p>
                     </li>
                     </Link>
+
+                    {/*This link is set to be testing the static page for admin page*/}
+                    <Link to = "/admin">
+                    <li className= "nav-item">
+                        <p className= "nav-link">Admin</p>
+                    </li>
+                    </Link>
+
                 </ul>
             </nav>
     );

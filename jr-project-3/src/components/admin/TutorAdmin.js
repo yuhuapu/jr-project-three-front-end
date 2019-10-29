@@ -1,8 +1,14 @@
 import React from 'react';
+import TutorCard from './TutorCard';
 
 function TutorAdmin () {
     return(
-        <p>this is the Tutor admin section</p>
+        <div className="card-deck">
+            <TutorCard />
+            <TutorCard />
+            <TutorCard />
+            <TutorCard />
+        </div>
     );
 }
 

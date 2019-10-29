@@ -1,8 +1,14 @@
 import React from 'react';
+import StudentCard from './StudentCard';
 
 function StudentsAdmin () {
     return(
-        <p>this is the student admin section</p>
+        <div className="card-deck">
+            <StudentCard />
+            <StudentCard />
+            <StudentCard />
+            <StudentCard />
+        </div>
     );
 }
 
