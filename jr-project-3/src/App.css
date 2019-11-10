@@ -1,5 +1,40 @@
 footer {
-  position: absolute;
-  width: 100%;
-  bottom: 0%;
+  bottom: 0;
+  text-align: center;
+  background-color: antiquewhite;
+  margin-top: 100px;
+}
+
+footer p{
+  margin: 10px;
+}
+
+.nav-button{
+  background-color: #ff5757;
+  margin: 5px;
+}
+
+.nav-button p{
+  color: aliceblue;
+  margin: 0%;
+  font-family: 'Roboto', sans-serif;
+}
+
+.jumbotron{
+  background-color: white;
+}
+
+.jumbotron h1{
+  font-family: 'Roboto', sans-serif;
+  font-size: 25px;
+}
+
+.section-container{
+  margin-top: 100px; 
+}
+
+.section-container p {
+  font-family: 'Roboto-light', sans-serif;
+  font-size: 15px;
+  color: gray;
 }

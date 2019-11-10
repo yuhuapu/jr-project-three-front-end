@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
     return(
-        <footer className = "text-center bg-light">
+        <footer>
             <p>This is a footer</p>
         </footer>
     );

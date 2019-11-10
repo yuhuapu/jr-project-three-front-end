@@ -4,32 +4,32 @@ import { Link } from "react-router-dom";
 function Navigation() {
     return (
         //Main menu bar
-            <nav className = "navbar navbar-expand-xl|lg|md|sm bg-light">
-                <Link to = "/">
-                <p className = "navbar-brand">Home</p>
+        <nav className="navbar navbar-expand-xl|lg|md|sm">
+            <Link to="/">
+                <p className="navbar-brand">Logo</p>
+            </Link>
+            <ul className="nav nav-pills">
+                <Link to="/login">
+                    <li className="nav-item">
+                        <button className = 'nav-link nav-button' ><p>Login</p></button>
+                    </li>
                 </Link>
-                <ul className = "nav nav-pills">
-                    <Link to = "/signup">
-                    <li className= "nav-item">
-                        <p className= "nav-link">Signup</p>
-                    </li>
-                    </Link>
 
-                    <Link to = "/login">
-                    <li className= "nav-item">
-                        <p className= "nav-link">Login</p>
+                <Link to="/signup">
+                    <li className="nav-item">
+                        <button className = 'nav-link nav-button' ><p>Signup</p></button>
                     </li>
-                    </Link>
+                </Link>
 
-                    {/*This link is set to be testing the static page for admin page*/}
-                    <Link to = "/admin">
-                    <li className= "nav-item">
-                        <p className= "nav-link">Admin</p>
+                {/*This link is set to be testing the static page for admin page*/}
+                <Link to="/admin">
+                    <li className="nav-item">
+                        <p className="nav-link">Admin</p>
                     </li>
-                    </Link>
+                </Link>
 
-                </ul>
-            </nav>
+            </ul>
+        </nav>
     );
 }
 

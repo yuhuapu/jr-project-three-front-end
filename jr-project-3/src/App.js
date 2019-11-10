@@ -22,7 +22,7 @@ class App extends React.Component {
             {/*This link is set to be testing the static page for admin page*/}
             <Route path = "/admin" component={Admin} />
           </Switch>
-        <Footer />
+        <Footer />        
       </Router>
     );
   }
