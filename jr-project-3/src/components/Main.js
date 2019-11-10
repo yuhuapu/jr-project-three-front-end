@@ -16,7 +16,6 @@ function Main() {
                     <Coursecard />
                     <Coursecard />
                     <Coursecard />
-                    <Coursecard />
                 </div>
             </div>
             </section>

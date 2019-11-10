@@ -9,17 +9,17 @@ function Navigation() {
                 <p className="navbar-brand">Logo</p>
             </Link>
             <ul className="nav nav-pills">
-                <Link to="/login">
-                    <li className="nav-item">
-                        <button className = 'nav-link nav-button' ><p>Login</p></button>
-                    </li>
-                </Link>
+                <li className="nav-item">
+                    <Link to="/login">
+                        <button className='nav-button' ><p>Login</p></button>
+                    </Link>
+                </li>
 
-                <Link to="/signup">
-                    <li className="nav-item">
-                        <button className = 'nav-link nav-button' ><p>Signup</p></button>
-                    </li>
-                </Link>
+                <li className="nav-item">
+                    <Link to="/signup">
+                        <button className='nav-button' ><p>Signup</p></button>
+                    </Link>
+                </li>
 
                 {/*This link is set to be testing the static page for admin page*/}
                 <Link to="/admin">
