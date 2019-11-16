@@ -1,5 +1,5 @@
 import React from 'react';
-import Coursecard from '../Coursecard';
+import Coursecard from './Coursecard';
 
 function CourseAdmin() {
     return (

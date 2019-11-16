@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import CourseAdmin from './CourseAdmin';
-import StudentAdmin from './StudentAdmin';
-import TutorAdmin from './TutorAdmin';
+import CourseAdmin from '../course/CourseAdmin';
+import StudentAdmin from '../student/StudentAdmin';
+import TutorAdmin from '../tutor/TutorAdmin';
 
 function Admin() {
     return (
