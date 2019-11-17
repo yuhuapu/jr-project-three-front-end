@@ -2,12 +2,12 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import Navigation from './components/Navigation';
-import Main from './components/Main';
-import Footer from './components/Footer';
-import Admin from './components/admin/Admin';
-import Signup from './components/Signup';
-import Login from './components/Login';
+import Navigation from './UI/Navigation';
+import Main from './UI/Main';
+import Footer from './UI/Footer';
+import Admin from './admin/Admin';
+import Signup from './signup/Signup';
+import Login from './login/Login';
 
 
 class App extends React.Component {

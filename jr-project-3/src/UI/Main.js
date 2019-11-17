@@ -1,6 +1,6 @@
 import React from 'react';
-import Coursecard from './Coursecard'
-import TutorCard from './admin/TutorCard';
+import Coursecard from '../course/Coursecard'
+import TutorCard from '../tutor/TutorCard';
 
 function Main() {
     return (
@@ -29,7 +29,6 @@ function Main() {
                 </div>
 
                 <div className="card-deck">
-                    <TutorCard />
                     <TutorCard />
                     <TutorCard />
                     <TutorCard />
