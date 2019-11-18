@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
+import './styles/navigationStyle.scss';
+
 function Navigation() {
     return (
         <nav className="navbar navbar-expand-xl|lg|md|sm">
