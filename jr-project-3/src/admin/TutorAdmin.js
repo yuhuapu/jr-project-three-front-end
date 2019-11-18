@@ -1,5 +1,5 @@
 import React from 'react';
-import TutorCard from './TutorCard';
+import TutorCard from '../tutor/TutorCard';
 
 function TutorAdmin () {
     return(

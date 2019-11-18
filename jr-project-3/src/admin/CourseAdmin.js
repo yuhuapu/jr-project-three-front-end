@@ -1,10 +1,9 @@
 import React from 'react';
-import Coursecard from './Coursecard';
+import Coursecard from '../course/Coursecard';
 
 function CourseAdmin() {
     return (
         <div className="card-deck">
-            <Coursecard />
             <Coursecard />
             <Coursecard />
             <Coursecard />
