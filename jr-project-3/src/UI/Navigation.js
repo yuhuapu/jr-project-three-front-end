@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 function Navigation() {
     return (
-        //Main menu bar
         <nav className="navbar navbar-expand-xl|lg|md|sm">
             <Link to="/">
                 <p className="navbar-brand">Logo</p>
