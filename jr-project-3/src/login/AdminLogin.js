@@ -1,4 +1,6 @@
 import React from "react";
+import "./styles/adminLogin.scss";
+
 import loginIcon from "../resource/img/login-icon.png";
 
 const AdminLogin = () => {

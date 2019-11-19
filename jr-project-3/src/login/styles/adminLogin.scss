@@ -1,0 +1,33 @@
+@import '../../theme/theme.scss';
+
+.form {
+    width: auto;
+    height: 430px;
+    position: relative;
+    margin-top: 25%;
+    padding: 90px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    .form-icon{
+        margin-bottom: 5%;
+    }
+    h4{
+        display: block;
+        margin-bottom: 5%;
+    }
+    button{
+        border: none;
+        width: 150px;
+        height: 20px;
+        font-size: 16px;
+        background: url('../../resource/img/log-in.png') no-repeat;
+        background-size: 100% 100%;
+        margin-top: 5%;
+        &:hover{
+            font-weight: bold;
+            background: url('../../resource/img/log-in-hover.png') no-repeat;
+            background-size: 100% 100%;
+            
+        }
+    }
+}

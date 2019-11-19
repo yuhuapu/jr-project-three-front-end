@@ -7,18 +7,18 @@ import Main from '../UI/Main';
 import Signup from '../signup/Signup';
 import Login from '../login/Login';
 
-const Hompage = () => {
+const Homepage = () => {
     return (
         <div>
             <Navigation />
             <Switch>
-                <Route exact path="/" component={Main} />
                 <Route path="/login" component={Login} />
                 <Route path="/signup" component={Signup} />
+                <Route path="/" component={Main} />
             </Switch>
             <Footer />
         </div>
     );
 }
 
-export default Hompage;
+export default Homepage;
