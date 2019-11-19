@@ -2,6 +2,8 @@ import React from 'react';
 // need to change the way image is imported
 import programming from '../resource/img/programming-html.jpg';
 
+import './styles/courseCardStyle.scss';
+
 function Coursecard() {
     return (
         <div className= "card">
