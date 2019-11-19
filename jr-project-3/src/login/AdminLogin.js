@@ -12,7 +12,7 @@ const AdminLogin = () => {
                 <input type="email" className="form-control" id="email" placeholder="Username" />
             </div>
             <div className="form-group">
-                <input type="passward" className="form-control" id="pwd" placeholder="Password" />
+                <input type="password" className="form-control" id="pwd" placeholder="Password" />
             </div>
             <button type="submit" >Login</button>
         </form>
