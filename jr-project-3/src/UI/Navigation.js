@@ -2,12 +2,13 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 import './styles/navigationStyle.scss';
+import logo from "../resource/img/logo.png";
 
 function Navigation() {
     return (
         <nav className="navbar navbar-expand-xl|lg|md|sm">
             <Link to="/">
-                <p className="navbar-brand">Logo</p>
+                <img src = {logo} className = "nav-logo" alt = "logo" />
             </Link>
             <ul className="nav nav-pills">
                 <li className="nav-item">
@@ -22,12 +23,12 @@ function Navigation() {
                     </Link>
                 </li>
 
-                {/*This link is set to be testing the static page for admin page*/}
+                {/* This link is set to be testing the static page for admin page
                 <Link to="/admin">
                     <li className="nav-item">
                         <p className="nav-link">Admin</p>
                     </li>
-                </Link>
+                </Link> */}
 
             </ul>
         </nav>
