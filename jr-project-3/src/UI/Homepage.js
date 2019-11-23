@@ -9,16 +9,20 @@ import Login from '../login/Login';
 
 const Homepage = () => {
     return (
-        <div>
-            <Navigation />
-            <Switch>
-                <Route path="/login" component={Login} />
-                <Route path="/signup" component={Signup} />
-                <Route path="/" component={Main} />
-            </Switch>
-            <Footer />
-        </div>
-    );
-}
-
+        <div className="row" >
+            <div className="col-sm-2" />
+            <div className="col-sm-8">
+                <Navigation />
+                <Switch>
+                    <Route path="/login" component={Login} />
+                    <Route path="/signup" component={Signup} />
+                    <Route path="/" component={Main} />
+                </Switch>
+                <Footer />
+            </div>
+            <div className="col-sm-2" />
+            </div>
+            );
+        }
+        
 export default Homepage;

@@ -22,14 +22,6 @@ function Navigation() {
                         <button className='nav-button' ><p>Signup</p></button>
                     </Link>
                 </li>
-
-                {/* This link is set to be testing the static page for admin page
-                <Link to="/admin">
-                    <li className="nav-item">
-                        <p className="nav-link">Admin</p>
-                    </li>
-                </Link> */}
-
             </ul>
         </nav>
     );
