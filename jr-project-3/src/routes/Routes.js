@@ -5,14 +5,12 @@ import Homepage from '../UI/Homepage';
 import AdminLogin from '../login/AdminLogin';
 import Admin from "../admin/Admin";
 
-const Routes = (props) => {
+const Routes = () => {
     return (
         <Router>
             <Switch>
                 <Route exact path="/admin" component={AdminLogin} />
-                <Route exact path="/admin/dashboard" 
-                    render = {() => (<Admin menuText = {props.menuText} />)}
-                />
+                <Route exact path="/admin/dashboard" component={Admin} />
                 <Route path="/" component={Homepage} />
             </Switch>
         </Router>

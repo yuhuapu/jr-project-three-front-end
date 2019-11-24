@@ -6,14 +6,7 @@ import TutorList from '../../../resource/img/tutor-list.png';
 import AddTutor from '../../../resource/img/add-tutor.png';
 import Search from '../../../resource/img/search.png';
 
-const changeImg = (props) => {
-    // const courseList = CourseList;
-    // const addCourse = AddCourse;
-    // const studentList = Studentlist;
-    // const addStduent = AddStudent;
-    // const tutorList = TutorList;
-    // const addTutor = AddTutor;
-    // const search = Search;
+function ButtonImg(props) {
 
     switch (props) {
         case "Course List":
@@ -42,4 +35,4 @@ const changeImg = (props) => {
     }
 }
 
-export default changeImg;
+export default ButtonImg;

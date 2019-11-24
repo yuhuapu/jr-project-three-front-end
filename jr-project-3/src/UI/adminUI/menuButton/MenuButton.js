@@ -1,11 +1,11 @@
 import React from 'react';
 
-import ButtonContent from '../menuButton/ButtonContent'
+import ButtonImg from './ButtonImg'
 
 function MenuButton(props) {
     return (
         <div className="menu-button">
-            <img src={ButtonContent(props.menuText)} alt="dashboard button" />
+            <img src={ButtonImg(props.menuText)} alt="dashboard button" />
             <p>{props.menuText}</p>
         </div>
     );
