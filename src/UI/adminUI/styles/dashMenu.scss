@@ -1,4 +1,4 @@
-@import '../../theme/theme.scss';
+@import '../../../theme/theme.scss';
 
 .dash-menu {
     text-align: center;
@@ -14,6 +14,15 @@
                 width: 80px;
                 height: 80px;
                 margin: 10% 0 10% 0;
+            }
+            a {
+                text-decoration: none;
+                color:$primary-color-grey;
+            
+                &:hover {
+                    color: $primary-color-dark;
+                    text-decoration: none;
+                }
             }
             &:hover{
                 box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

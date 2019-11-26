@@ -1,8 +1,8 @@
 import React from 'react';
 
-import "../../../UI/styles/dashMenu.scss";
+import "../../styles/dashMenu.scss";
 
-import MenuButton from '../../../UI/adminUI/menuButton/MenuButton';
+import MenuButton from '../../../adminUI/menuButton/MenuButton';
 
 function CourseMenu(props) {
     return (

@@ -3,7 +3,7 @@ import React from 'react';
 import CourseRow from './CourseRow';
 import CourseFormTitle from './CourseFormTitle';
 
-import '../../styles/adminCourseStyle.scss';
+import '../styles/adminCourseStyle.scss';
 
 function CourseForm() {
 	return (

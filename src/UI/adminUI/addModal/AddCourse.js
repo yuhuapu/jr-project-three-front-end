@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../../styles/addModal.scss';
+import './styles/addModal.scss';
 
 const AddCourse = () => {
     return (
