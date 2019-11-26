@@ -2,110 +2,116 @@ import React from 'react';
 
 import '../../styles/addModal.scss';
 
-const addCourse = () => {
+const AddCourse = () => {
     return (
-        <div className="row">
-            <div className="col-md-2" />
-            <div className="col-md-8">
-                <form className="addModal-container">
-                    <h4>Course Info</h4>
-                    <div className="row">
-                        <div className="col-md-3">
-                            <p>Course Name</p>
-                        </div>
-                        <div className="col-md-9">
-                            <input name="courseName" type="text" />
-                        </div>
+        <div className="add-modal">
+            <form className="addCouese-container">
+                <h4>Course Info</h4>
+                <div className="row">
+                    <div className="col-md-3">
+                        <p>Course Name</p>
                     </div>
 
-                    <div className="row">
-                        <div className="col-md-3">
-                            <p>Course Period</p>
-                        </div>
-                        <div className="col-md-4">
-                            <input name="startDate" type="date" />
-                        </div>
-                        <div className="col-md-1">
-                            <span> - </span>
-                        </div>
-                        <div className="col-md-4">
-                            <input name="endDate" type="date" />
-                        </div>
+                    <div className="col-md-9">
+                        <input name="courseName" type="text" className="course-name" />
                     </div>
+                </div>
 
-                    <div className = "row">
-                        <div className = "col-md-3">
+                {/* Date input is not perfect, type is text at the moment, need to be improved */}
+                <div className="row">
+                    <div className="col-md-3">
+                        <p>Course Period</p>
+                    </div>
+                    <div className="col-md-4">
+                        <input name="startDate" type="text" placeholder="Day/Month/Year" className="course-period" />
+                    </div>
+                    <div className="col-md-1">
+                        <span> - </span>
+                    </div>
+                    <div className="col-md-4">
+                        <input name="startDate" type="text" placeholder="Day/Month/Year" className="course-period" />
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="col-md-3">
                         <p>Course Description</p>
-                        </div>
                     </div>
+                </div>
 
-                    <div className = "row">
-                        <div className = "col-md-12">
-                            <textarea name = "courseDescription" />
-                        </div>
+                <div className="row">
+                    <div className="col-md-12">
+                        <textarea name="courseDescription" className="description-box" />
                     </div>
+                </div>
 
-                    <div className = "row">
-                        <div className = "col-md-2">
-                            <p>Tutor</p>
-                        </div>
-                        <div className = "col-md-8" />
-                        <div className = "col-md-2">
-                            <p>Total:</p>
-                        </div>
+                <hr />
+
+                <div className="row">
+                    <div className="col-md-3">
+                        <p>Tutor</p>
                     </div>
-
-                    <div className = "row">
-                        <div className = "col-md-8" />
-                         <div className = "col-md-4">
-                            <button>Add</button>
-                            <button>Edit</button>
-                            <button>Delete</button>
-                         </div>
+                    <div className="col-md-7" />
+                    <div className="col-md-2">
+                        <p>Total:</p>
                     </div>
+                </div>
 
-                    <div className = "row">
-                        <div className = "col-md-2">
-                            <p>Student</p>
-                        </div>
-                        <div className = "col-md-8" />
-                        <div className = "col-md-2">
-                            <p>Total:</p>
-                        </div>
+                <div className="row">
+                    <div className="col-md-8" />
+                    <div className="col-md-4">
+                        <button className="edit-button">Add</button>
+                        <button className="edit-button">Edit</button>
+                        <button className="edit-button">Delete</button>
                     </div>
+                </div>
 
-                    <div className = "row">
-                        <div className = "col-md-8" />
-                         <div className = "col-md-4">
-                            <button>Add</button>
-                            <button>Edit</button>
-                            <button>Delete</button>
-                         </div>
+                <hr className="middle-line" />
+
+                <div className="row">
+                    <div className="col-md-3">
+                        <p>Student</p>
                     </div>
+                    <div className="col-md-7" />
+                    <div className="col-md-2">
+                        <p>Total:</p>
+                    </div>
+                </div>
 
-                    <div className = "row">
-                        <div className = "col-md-3">
+                <div className="row">
+                    <div className="col-md-8" />
+                    <div className="col-md-4">
+                        <button className="edit-button">Add</button>
+                        <button className="edit-button">Edit</button>
+                        <button className="edit-button">Delete</button>
+                    </div>
+                </div>
+
+                <hr />
+
+                <div className="row">
+                    <div className="col-md-3">
                         <p>Cover Picture</p>
-                        </div>
                     </div>
+                </div>
 
-                    <div className = "row">
-                        <div className = "col-md-3">
-                            <button>upload</button>
-                        </div>
+                <div className="row">
+                    <div className="col-md-3">
+                        <button className="edit-button">upload</button>
                     </div>
+                </div>
 
-                    <div className = "row">
-                        <div className = "col-md">
-                            <button>Add</button>
-                            <button>Cancle</button>
+                <div className="row">
+                    <div className="col-md">
+                        <div className="submit-button-container">
+                            <button className="submit-button">Add</button>
+                            <button className="submit-button">Cancle</button>
                         </div>
                     </div>
-                </form>
-            </div>
-            <div className="col-md-2"></div>
+                </div>
+            </form>
         </div>
     );
 }
 
-export default addCourse;
+export default AddCourse;

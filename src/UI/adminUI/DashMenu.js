@@ -23,7 +23,7 @@ function DashMenu(props) {
                     </div>
 
                     <div className="col-md-4" >
-                        <Link to="/admin/dashboard/addcourse">
+                        <Link to= {"/admin/dashboard/" + props.menuText[2].toLowerCase().replace(' ','')} >
                             <MenuButton
                                 menuText={props.menuText[2]}
                             />
