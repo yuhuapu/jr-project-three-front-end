@@ -32,6 +32,7 @@ function DashMenu(props) {
 
                     <div className="col-md-4" >
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <div className="menu-button" >
                             <MenuButton 
                             menuText = {props.menuText[2]} 
@@ -39,6 +40,9 @@ function DashMenu(props) {
                         </div>
 =======
                         <Link to="/admin/dashboard/addcourse">
+=======
+                        <Link to= {"/admin/dashboard/" + props.menuText[2].toLowerCase().replace(' ','')} >
+>>>>>>> Add forms completed with minor differences to the design, pop up not completed, need to be improved
                             <MenuButton
                                 menuText={props.menuText[2]}
                             />
