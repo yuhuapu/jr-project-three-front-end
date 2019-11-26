@@ -1,10 +1,10 @@
 import React from 'react';
 
-import "../styles/dashMenu.scss";
+import "../../../UI/styles/dashMenu.scss";
 
-import MenuButton from './menuButton/MenuButton';
+import MenuButton from '../../../UI/adminUI/menuButton/MenuButton';
 
-function DashMenu(props) {
+function CourseMenu(props) {
     return (
         <div className="dash-menu">
             <div className="row">
@@ -20,14 +20,14 @@ function DashMenu(props) {
                         </div>
                     </div>
                     <div className="col-md-4" >
-                        <div className="menu-button" >
+                        <div className="menu-button-unactive" >
                             <MenuButton 
                             menuText = {props.menuText[2]} 
                             />
                         </div>
                     </div>
                     <div className="col-md-4" >
-                        <div className="menu-button" >
+                        <div className="menu-button-unactive" >
                             <MenuButton 
                                 menuText = {props.menuText[3]}
                             />
@@ -39,4 +39,4 @@ function DashMenu(props) {
     );
 }
 
-export default DashMenu;
+export default CourseMenu;
