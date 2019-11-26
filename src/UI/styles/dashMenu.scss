@@ -1,9 +1,28 @@
+@import '../../theme/theme.scss';
+
 .dash-menu {
     text-align: center;
     margin-top: 5%;
     .menu-container{
-        margin: 5% 0 10% 0;
         .menu-button{
+            opacity: 1;
+            margin: 5% 0 10% 0;
+            padding: 0 0 10px 0;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border-radius: 5px;
+            img{
+                width: 80px;
+                height: 80px;
+                margin: 10% 0 10% 0;
+            }
+            &:hover{
+                box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+        }
+
+        .menu-button-unactive{
+            opacity: 0.4;
+            margin: 5% 0 10% 0;
             padding: 0 0 10px 0;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             border-radius: 5px;
