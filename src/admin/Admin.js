@@ -7,6 +7,7 @@ import { ButtonText } from "../UI/adminUI/menuButton/ButtonText"
 
 const Admin = () => {
         return (
+<<<<<<< HEAD
             <div>
                 <div className="row" >
                     <div className="col-md-2" />
@@ -24,6 +25,16 @@ const Admin = () => {
                         <Footer />
                     </div>
                     <div className="col-md-2" />
+=======
+            <div className="row" >
+                <div className="col-md-2" />
+                <div className="col-md-8 main-container" >
+                    <Navigation />
+                    <DashMenu menuText = {ButtonText.courseText} />
+                    <DashMenu menuText = {ButtonText.studentText} />
+                    <DashMenu menuText = {ButtonText.tutorText} />
+                    <Footer />
+>>>>>>> master
                 </div>
             </div>
         );
