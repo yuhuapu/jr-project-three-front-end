@@ -5,7 +5,7 @@
     margin-top: 5%;
     .row {
         .col-md{
-            background: url('../../resource/img/section-title-background.svg') no-repeat center;
+            background: url('../../../resource/img/section-title-background.svg') no-repeat center;
         }
     }
     .menu-container{
@@ -48,13 +48,8 @@
                 height: 80px;
                 margin: 10% 0 10% 0;
             }
-<<<<<<< HEAD:src/UI/adminUI/styles/dashMenu.scss
-            &:hover, &:active{
-                box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-=======
             &:hover{
                 box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
->>>>>>> master:src/UI/styles/dashMenu.scss
             }
         }
     }
