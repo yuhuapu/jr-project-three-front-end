@@ -1,14 +1,18 @@
 import React from 'react';
 
 import TutorRow from './TutorRow';
-import StudentFormTitle from './StudentFormTitle';
 
 import '../styles/listModel.scss';
 
 function StudentForm() {
-	return (       
+	return ( 
+	    
 		<section className="course-list">
-            <StudentFormTitle />
+            <div className="row course-form-title">
+				<span className="col-md-3 course-title-name">Student Name</span>
+				<span className="col-md-5 course-title-date">Email</span>
+				<span className="col-md-2 course-title-tutor">Phone</span>
+			</div>  
             <hr className="line-top"/>
 			<TutorRow
 				name="Tylor Swift"

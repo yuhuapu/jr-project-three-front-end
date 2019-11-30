@@ -3,31 +3,58 @@
 .dash-menu {
     text-align: center;
     margin-top: 5%;
-    .menu-container{
-    
-
-        .menu-button-unactive{
-            opacity: 0.4;
-            margin: 5% 0 10% 0;
-            padding: 0 0 10px 0;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            border-radius: 5px;
-            p {
-                color: black;
-            }
-            img{
-                width: 80px;
-                height: 80px;
-                margin: 10% 0 10% 0;
-            }
-            &:hover, &:active{
-                box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            }
+    .row {
+        .col-md{
+            background: url('../../../resource/img/section-title-background.svg') no-repeat center;
         }
-
+    }
+    .menu-container{
         .menu-button{
-            opacity: 1;
-        
+            .menu-button{
+          
+                margin: 5% 0 10% 0;
+                padding: 0 0 10px 0;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                border-radius: 5px;
+       
+                &:hover, &:active{
+                    opacity: 1;
+                    box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                }
+            }
+    
+            .link-style{
+                text-decoration: none;
+                color: rgb(133, 132, 132);
+                img{  
+                    opacity: 0.6;
+                    width: 80px;
+                    height: 80px;
+                    margin: 10% 0 10% 0;
+                }
+                img:hover{  
+                    opacity: 1;
+                }
+            }
+    
+    
+            .link-style:hover{
+                color: rgb(8, 8, 8);     
+    
+            }
+            
+            .chosen {
+                text-decoration: none;
+                color: rgb(8, 8, 8);   
+                font-size: large;  
+                img{  
+                    opacity: 1;
+                    width: 80px;
+                    height: 80px;
+                    margin: 10% 0 10% 0;
+                }
+            }
+    
         }
     }
 }

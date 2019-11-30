@@ -1,7 +1,7 @@
 import React from 'react';
 
 import '../styles/searchModel.scss';
-import Search from '../../../../resource/img/search.png';
+import Search from '../../../../resource/img/search.svg';
 
 
 const SearchBar = () =>{

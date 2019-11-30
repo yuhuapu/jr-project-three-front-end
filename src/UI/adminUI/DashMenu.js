@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 
 import "./styles/dashMenu.scss";
@@ -17,32 +17,38 @@ function DashMenu(props) {
             <div className="menu-container">
                 <div className="row">
                     <div className="col-md-4" >
-                        <div className="menu-button-unactive menu-button" >
-                        <Link to= {"/admin/dashboard/" + props.menuText[1].toLowerCase().replace(' ','')} >
-                            <MenuButton
-                                menuText = {props.menuText[1]}
-                            />
-                        </Link>    
+            
+                        <div className="menu-button" >
+                            <NavLink to= {"/admin/dashboard/" + props.menuText[1].toLowerCase().replace(' ','')} 
+                                className="link-style" activeClassName="chosen">
+                   
+                                <MenuButton
+                                    menuText = {props.menuText[1]}
+                                />
+                            </NavLink>  
+                        </div>
+                    
+                    </div>
+
+                    <div className="col-md-4" >
+                        <div className="menu-button" >
+                            <NavLink to= {"/admin/dashboard/" + props.menuText[2].toLowerCase().replace(' ','')} 
+                                className="link-style" activeClassName="chosen">
+                                <MenuButton
+                                    menuText={props.menuText[2]}
+                                />
+                            </NavLink>
                         </div>
                     </div>
 
                     <div className="col-md-4" >
-                        <div className="menu-button-unactive menu-button" >
-                        <Link to= {"/admin/dashboard/" + props.menuText[2].toLowerCase().replace(' ','')} >
-                            <MenuButton
-                                menuText={props.menuText[2]}
-                            />
-                        </Link>
-                        </div>
-                    </div>
-
-                    <div className="col-md-4" >
-                        <div className="menu-button-unactive menu-button" >
-                            <Link to= {"/admin/dashboard/" + props.menuText[3].toLowerCase().replace(' ','')} >
+                        <div className="menu-button" >
+                            <NavLink to= {"/admin/dashboard/" + props.menuText[3].toLowerCase().replace(' ','')} 
+                                className="link-style" activeClassName="chosen">
                                 <MenuButton 
                                     menuText = {props.menuText[3]}
                                 />
-                            </Link>
+                            </NavLink>
                         </div>
                     </div>
                 </div>

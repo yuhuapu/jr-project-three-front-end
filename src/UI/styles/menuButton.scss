@@ -1,0 +1,16 @@
+@import '../../theme/theme.scss';
+
+.menu-link {
+    text-decoration: none;
+    color:$primary-color-grey;
+
+    &:hover {
+        color: $primary-color-dark;
+        text-decoration: none;
+    }
+    p {
+       margin-bottom: 1.8rem;
+    }
+
+
+}

@@ -1,23 +1,23 @@
 import React from 'react';
 import Navigation from '../../../Navigation';
-import CourseMenu from '../../listModel/components/CourseMenu';
-import TutorForm from '../../listModel/components/TutorForm';
-import PageNumber from '../../listModel/components/PageNumber';
+import DashMenu from '../../DashMenu';
+import StudentForm from '../../listModal/components/StudentForm';
+import PageNumber from '../../listModal/components/PageNumber';
 import Footer from '../../../Footer';
 import SearchBar from './SearchBar';
 
 
 import { ButtonText } from "../../menuButton/ButtonText";
 
-const AdminTutorSearch = () => {
+const AdminStudentSearch = () => {
         return (
             <div className="row" >
                 <div className="col-md-2" />
                 <div className="col-md-8" >
                     <Navigation />
-                    <CourseMenu menuText = {ButtonText.tutorText} />
+                    <DashMenu menuText = {ButtonText.studentText} />
                     <SearchBar />
-                    <TutorForm />
+                    <StudentForm />
                     <PageNumber />
                     <Footer /> 
                 </div>
@@ -26,4 +26,4 @@ const AdminTutorSearch = () => {
         );
 }
 
-export default AdminTutorSearch;
+export default AdminStudentSearch;

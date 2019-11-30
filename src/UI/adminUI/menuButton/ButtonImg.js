@@ -1,10 +1,10 @@
-import CourseList from "../../../resource/img/course-list.png";
-import AddCourse from '../../../resource/img/add-course.png';
-import Studentlist from '../../../resource/img/student-list.png';
-import AddStudent from '../../../resource/img/add-student.png';
-import TutorList from '../../../resource/img/tutor-list.png';
-import AddTutor from '../../../resource/img/add-tutor.png';
-import Search from '../../../resource/img/search.png';
+import CourseList from "../../../resource/img/course-list.svg";
+import AddCourse from '../../../resource/img/add-course.svg';
+import Studentlist from '../../../resource/img/student-list.svg';
+import AddStudent from '../../../resource/img/add-student.svg';
+import TutorList from '../../../resource/img/tutor-list.svg';
+import AddTutor from '../../../resource/img/add-tutor.svg';
+import Search from '../../../resource/img/search.svg';
 
 function ButtonImg(props) {
 
