@@ -27,9 +27,14 @@ function ButtonImg(props) {
         case "Add Tutor":
             return AddTutor;
 
-        case "Search":
+        case "Tutor Search":
             return Search;
-
+        
+        case "Student Search":
+            return Search;
+        
+        case "Course Search":
+            return Search;
         default:
             break;
     }

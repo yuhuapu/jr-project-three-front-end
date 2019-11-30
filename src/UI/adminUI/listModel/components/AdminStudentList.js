@@ -1,19 +1,19 @@
 import React from 'react';
-import Navigation from '../../../../UI/Navigation';
-import Footer from '../../../../UI/Footer';
-import CourseForm from './CourseForm';
+import Navigation from '../../../Navigation';
+import Footer from '../../../Footer';
+import StudentForm from './StudentForm';
 import CourseMenu from './CourseMenu';
 import PageNumber from './PageNumber';
-import { ButtonText } from "../../../../UI/adminUI/menuButton/ButtonText";
+import { ButtonText } from "../../menuButton/ButtonText";
 
-const AdminCourseList = () => {
+const AdminStudentList = () => {
         return (
             <div className="row" >
                 <div className="col-md-2" />
                 <div className="col-md-8" >
                     <Navigation />
-                    <CourseMenu menuText = {ButtonText.courseText} />
-                    <CourseForm />
+                    <CourseMenu menuText = {ButtonText.studentText} />
+                    <StudentForm />
                     <PageNumber />
                     <Footer />
                 </div>
@@ -22,4 +22,4 @@ const AdminCourseList = () => {
         );
 }
 
-export default AdminCourseList;
+export default AdminStudentList;

@@ -1,0 +1,24 @@
+.search-container {
+    background-color:rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 10px 50px 30px 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin:20px auto;
+
+}
+
+.search-bar {
+    background-color:rgba(175, 170, 170, 0.2);
+    outline-color: rgba(175, 170, 170, 0.2);
+    height:30px;
+
+}
+
+.hint {
+    padding:5px 10px;
+}
+
+.search-icon {
+    padding:0px 10px 0px 10px;
+    width:50px;
+}

@@ -1,0 +1,25 @@
+import React from 'react';
+import Navigation from '../../../Navigation';
+import Footer from '../../../Footer';
+import CourseForm from './CourseForm';
+import CourseMenu from './CourseMenu';
+import PageNumber from './PageNumber';
+import { ButtonText } from "../../menuButton/ButtonText";
+
+const AdminCourseList = () => {
+        return (
+            <div className="row" >
+                <div className="col-md-2" />
+                <div className="col-md-8" >
+                    <Navigation />
+                    <CourseMenu menuText = {ButtonText.courseText} />
+                    <CourseForm />
+                    <PageNumber />
+                    <Footer />
+                </div>
+                <div className="col-md-2" />
+            </div>
+        );
+}
+
+export default AdminCourseList;

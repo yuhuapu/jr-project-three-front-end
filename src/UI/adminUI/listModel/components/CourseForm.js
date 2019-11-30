@@ -3,7 +3,7 @@ import React from 'react';
 import CourseRow from './CourseRow';
 import CourseFormTitle from './CourseFormTitle';
 
-import '../styles/adminCourseStyle.scss';
+import '../styles/listModel.scss';
 
 function CourseForm() {
 	return (
@@ -60,7 +60,7 @@ function CourseForm() {
 				student="10"
 			/>  
 
-<CourseRow
+			<CourseRow
 				name="Web Full-Stack"
 				date="01/01/2019-01/04/2019"
 				tutor="3"

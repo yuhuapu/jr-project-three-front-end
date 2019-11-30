@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../styles/adminCourseStyle.scss';
+import '../styles/listModel.scss';
 
 function CourseRow(props) {
 	return (
