@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../../styles/adminCourseStyle.scss';
+import '../styles/adminCourseStyle.scss';
 
 function NumberList(props) {
     const numbers = props.numbers;

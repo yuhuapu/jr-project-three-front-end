@@ -1,12 +1,10 @@
 import React from 'react';
-import Navigation from '../../../UI/Navigation';
-import Footer from '../../../UI/Footer';
+import Navigation from '../../../../UI/Navigation';
+import Footer from '../../../../UI/Footer';
 import CourseForm from './CourseForm';
 import CourseMenu from './CourseMenu';
 import PageNumber from './PageNumber';
-import { ButtonText } from "../../../UI/adminUI/menuButton/ButtonText";
-
-import '../../styles/courseCardStyle.scss';
+import { ButtonText } from "../../../../UI/adminUI/menuButton/ButtonText";
 
 const AdminCourseList = () => {
         return (

@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
-import "../styles/dashMenu.scss";
+import "./styles/dashMenu.scss";
 
 import MenuButton from './menuButton/MenuButton';
 
@@ -10,22 +11,29 @@ function DashMenu(props) {
             <div className="row">
                 <h5 className="col-md">{props.menuText[0]}</h5>
             </div>
+
             <div className="menu-container">
                 <div className="row">
                     <div className="col-md-4" >
                         <div className="menu-button" >
+                        <Link to= {"/admin/dashboard/" + props.menuText[1].toLowerCase().replace(' ','')} >
                             <MenuButton
                                 menuText = {props.menuText[1]}
                             />
+                        </Link>    
                         </div>
                     </div>
+
                     <div className="col-md-4" >
                         <div className="menu-button" >
-                            <MenuButton 
-                            menuText = {props.menuText[2]} 
+                        <Link to= {"/admin/dashboard/" + props.menuText[2].toLowerCase().replace(' ','')} >
+                            <MenuButton
+                                menuText={props.menuText[2]}
                             />
+                        </Link>
                         </div>
                     </div>
+
                     <div className="col-md-4" >
                         <div className="menu-button" >
                             <MenuButton 

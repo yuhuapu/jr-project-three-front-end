@@ -1,11 +1,11 @@
-@import '../../theme/theme.scss';
+@import '../../../theme/theme.scss';
 
 .dash-menu {
     text-align: center;
     margin-top: 5%;
     .row {
         .col-md{
-            background: url('../../resource/img/section-title-background.svg') no-repeat center;
+            background: url('../../../resource/img/section-title-background.svg') no-repeat center;
         }
     }
     .menu-container{
@@ -20,6 +20,15 @@
                 height: 50px;
                 margin: 20% auto 10% auto;
             }
+            a {
+                text-decoration: none;
+                color:$primary-color-grey;
+            
+                &:hover {
+                    color: $primary-color-dark;
+                    text-decoration: none;
+                }
+            }
             &:hover{
                 box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
             }
@@ -31,6 +40,9 @@
             padding: 0 0 10px 0;
             box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
             border-radius: 5px;
+            p {
+                color: black;
+            }
             img{
                 width: 80px;
                 height: 80px;
