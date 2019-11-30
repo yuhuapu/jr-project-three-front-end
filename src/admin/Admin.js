@@ -9,7 +9,7 @@ const Admin = () => {
         return (
             <div className="row" >
                 <div className="col-md-2" />
-                <div className="col-md-8" >
+                <div className="col-md-8 main-container" >
                     <Navigation />
                     <DashMenu menuText = {ButtonText.courseText} />
                     <DashMenu menuText = {ButtonText.studentText} />

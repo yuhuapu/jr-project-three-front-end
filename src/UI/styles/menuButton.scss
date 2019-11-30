@@ -1,7 +1,6 @@
 @import '../../theme/theme.scss';
 
 .menu-link {
-    padding: 0.5rem 1rem;
     text-decoration: none;
     color:$primary-color-grey;
 
@@ -9,4 +8,9 @@
         color: $primary-color-dark;
         text-decoration: none;
     }
+    p {
+       margin-bottom: 1.8rem;
+    }
+
+
 }
