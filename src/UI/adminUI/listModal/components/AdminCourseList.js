@@ -12,7 +12,10 @@ const AdminCourseList = () => {
                 <div className="col-md-2" />
                 <div className="col-md-8" >
                     <Navigation />
-                    <DashMenu menuText = {ButtonText.courseText} />
+                    <DashMenu 
+                        menuText = {ButtonText.courseText} 
+                        styleText = {ButtonText.styleText[1]} 
+                    />
                     <CourseForm />
                     <PageNumber />
                     <Footer />

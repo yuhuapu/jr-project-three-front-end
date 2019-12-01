@@ -14,44 +14,37 @@
                 padding: 0 0 10px 0;
                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
                 border-radius: 5px;
+
+                img{  
+                    width: 80px;
+                    height: 80px;
+                    margin: 10% 0 10% 0;
+                }
+
+                .link-style-active{
+                    text-decoration: none;
+                    color: rgb(0, 0, 0);
+                    opacity: 1;
+                }
+
+                .link-style-inactive{
+                    text-decoration: none;
+                    color: rgb(132, 132, 132);
+                    opacity: 0.6;
+                }
+
+                .chosen {
+                    text-decoration: none;
+                    color: rgb(8, 8, 8);   
+                    font-size: large;  
+                    img{  
+                        opacity: 1;
+                    }
+                }
        
                 &:hover, &:active{
-                    opacity: 1;
                     box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
                 }
             }
-    
-            .link-style{
-                text-decoration: none;
-                color: rgb(133, 132, 132);
-                img{  
-                    opacity: 0.6;
-                    width: 80px;
-                    height: 80px;
-                    margin: 10% 0 10% 0;
-                }
-                img:hover{  
-                    opacity: 1;
-                }
-            }
-    
-    
-            .link-style:hover{
-                color: rgb(8, 8, 8);     
-    
-            }
-            
-            .chosen {
-                text-decoration: none;
-                color: rgb(8, 8, 8);   
-                img{  
-                    opacity: 1;
-                    width: 80px;
-                    height: 80px;
-                    margin: 10% 0 10% 0;
-                }
-            }
-    
-    
     }
 }

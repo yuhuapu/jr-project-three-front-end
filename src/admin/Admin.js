@@ -11,9 +11,18 @@ const Admin = () => {
                 <div className="col-md-2" />
                 <div className="col-md-8 main-container" >
                     <Navigation />
-                    <DashMenu menuText = {ButtonText.courseText} />
-                    <DashMenu menuText = {ButtonText.studentText} />
-                    <DashMenu menuText = {ButtonText.tutorText} />
+                    <DashMenu 
+                        menuText = {ButtonText.courseText}
+                        styleText = {ButtonText.styleText[0]} 
+                    />
+                    <DashMenu 
+                        menuText = {ButtonText.studentText}
+                        styleText = {ButtonText.styleText[0]} 
+                    />
+                    <DashMenu 
+                        menuText = {ButtonText.tutorText}
+                        styleText = {ButtonText.styleText[0]} 
+                    />
                     <Footer />
                 </div>
             </div>

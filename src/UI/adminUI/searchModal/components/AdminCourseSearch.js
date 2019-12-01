@@ -6,9 +6,6 @@ import PageNumber from '../../listModal/components/PageNumber';
 import Footer from '../../../Footer';
 import SearchBar from './SearchBar';
 
-
-
-
 import { ButtonText } from "../../menuButton/ButtonText";
 
 const AdminCourseSearch = () => {
@@ -17,7 +14,10 @@ const AdminCourseSearch = () => {
                 <div className="col-md-2" />
                 <div className="col-md-8" >
                     <Navigation />
-                    <DashMenu menuText = {ButtonText.courseText} />
+                    <DashMenu 
+                        menuText = {ButtonText.courseText} 
+                        styleText = {ButtonText.styleText[1]} 
+                    />
                     <SearchBar />
                     <CourseForm />
                     <PageNumber />

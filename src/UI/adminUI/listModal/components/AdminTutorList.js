@@ -12,7 +12,10 @@ const AdminTutorList = () => {
                 <div className="col-md-2" />
                 <div className="col-md-8" >
                     <Navigation />
-                    <DashMenu menuText = {ButtonText.tutorText} />
+                    <DashMenu 
+                        menuText = {ButtonText.tutorText} 
+                        styleText = {ButtonText.styleText[1]} 
+                    />
                     <TutorForm />
                     <PageNumber />
                     <Footer />

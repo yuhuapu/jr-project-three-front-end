@@ -20,7 +20,7 @@ function DashMenu(props) {
             
                         <div className="menu-button" >
                             <NavLink to= {"/admin/dashboard/" + props.menuText[1].toLowerCase().replace(' ','')} 
-                                className="link-style" activeClassName="chosen">
+                                className={props.styleText} activeClassName="chosen">
                    
                                 <MenuButton
                                     menuText = {props.menuText[1]}
@@ -33,7 +33,7 @@ function DashMenu(props) {
                     <div className="col-md-4" >
                         <div className="menu-button" >
                             <NavLink to= {"/admin/dashboard/" + props.menuText[2].toLowerCase().replace(' ','')} 
-                                className="link-style" activeClassName="chosen">
+                                className={props.styleText}  activeClassName="chosen">
                                 <MenuButton
                                     menuText={props.menuText[2]}
                                 />
@@ -44,7 +44,7 @@ function DashMenu(props) {
                     <div className="col-md-4" >
                         <div className="menu-button" >
                             <NavLink to= {"/admin/dashboard/" + props.menuText[3].toLowerCase().replace(' ','')} 
-                                className="link-style" activeClassName="chosen">
+                                className={props.styleText}  activeClassName="chosen">
                                 <MenuButton 
                                     menuText = {props.menuText[3]}
                                 />
