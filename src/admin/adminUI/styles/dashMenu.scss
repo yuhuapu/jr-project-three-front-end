@@ -25,17 +25,20 @@
         text-decoration: none;
         color: rgb(0, 0, 0);
         opacity: 1;
+        cursor: pointer;
       }
 
       .link-style-inactive {
         text-decoration: none;
         color: rgb(132, 132, 132);
-        opacity: 0.4;
+        // Question here, not sure why opacity is not set yet button link is still grayed out
+        // opacity: 0.4;
+        cursor: pointer;
         img {
           opacity: 0.4;
-          width: 80px;
-          height: 80px;
-          margin: 10% 0 10% 0;
+          width: 50px;
+          height: 50px;
+          margin: 20% auto 10% auto;
         }
       }
 
