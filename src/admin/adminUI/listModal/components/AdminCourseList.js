@@ -1,32 +1,28 @@
 import React from 'react';
-import Navigation from '../../../Navigation';
+import Navigation from '../../../../UI/Navigation';
+import Footer from '../../../../UI/Footer';
+import CourseForm from './CourseForm';
 import DashMenu from '../../DashMenu';
-import StudentForm from '../../listModal/components/StudentForm';
-import PageNumber from '../../listModal/components/PageNumber';
-import Footer from '../../../Footer';
-import SearchBar from './SearchBar';
-
-
+import PageNumber from './PageNumber';
 import { ButtonText } from "../../menuButton/ButtonText";
 
-const AdminStudentSearch = () => {
+const AdminCourseList = () => {
         return (
             <div className="row" >
                 <div className="col-md-2" />
                 <div className="col-md-8" >
                     <Navigation />
                     <DashMenu 
-                        menuText = {ButtonText.studentText} 
+                        menuText = {ButtonText.courseText} 
                         styleText = {ButtonText.styleText[1]} 
                     />
-                    <SearchBar />
-                    <StudentForm />
+                    <CourseForm />
                     <PageNumber />
-                    <Footer /> 
+                    <Footer />
                 </div>
                 <div className="col-md-2" />
             </div>
         );
 }
 
-export default AdminStudentSearch;
+export default AdminCourseList;

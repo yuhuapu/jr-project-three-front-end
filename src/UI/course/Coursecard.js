@@ -1,6 +1,6 @@
 import React from 'react';
 // need to change the way image is imported
-import programming from '../resource/img/programming-html.jpg';
+import programming from '../../resource/img/programming-html.jpg';
 
 import './styles/courseCardStyle.scss';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 // Need to change the way picture of tutor is included in the card
-import tutorImg from "../resource/img/tutor.jpg";
+import tutorImg from "../../resource/img/tutor.jpg";
 
 function TutorCard() {
     return (

@@ -1,8 +1,8 @@
 import React from 'react';
 import Navigation from '../UI/Navigation';
 import Footer from '../UI/Footer';
-import DashMenu from '../UI/adminUI/DashMenu';
-import { ButtonText } from "../UI/adminUI/menuButton/ButtonText"
+import DashMenu from './adminUI/DashMenu';
+import { ButtonText } from "./adminUI/menuButton/ButtonText"
 
 
 const Admin = () => {

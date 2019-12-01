@@ -1,12 +1,15 @@
 import React from 'react';
-import Navigation from '../../../Navigation';
-import Footer from '../../../Footer';
-import TutorForm from './TutorForm';
+import Navigation from '../../../../UI/Navigation';
 import DashMenu from '../../DashMenu';
-import PageNumber from './PageNumber';
+import TutorForm from '../../listModal/components/TutorForm';
+import PageNumber from '../../listModal/components/PageNumber';
+import Footer from '../../../../UI/Footer';
+import SearchBar from './SearchBar';
+
+
 import { ButtonText } from "../../menuButton/ButtonText";
 
-const AdminTutorList = () => {
+const AdminTutorSearch = () => {
         return (
             <div className="row" >
                 <div className="col-md-2" />
@@ -16,13 +19,14 @@ const AdminTutorList = () => {
                         menuText = {ButtonText.tutorText} 
                         styleText = {ButtonText.styleText[1]} 
                     />
+                    <SearchBar />
                     <TutorForm />
                     <PageNumber />
-                    <Footer />
+                    <Footer /> 
                 </div>
                 <div className="col-md-2" />
             </div>
         );
 }
 
-export default AdminTutorList;
+export default AdminTutorSearch;

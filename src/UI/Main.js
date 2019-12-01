@@ -1,6 +1,6 @@
 import React from 'react';
-import Coursecard from '../course/Coursecard'
-import TutorCard from '../tutor/TutorCard';
+import Coursecard from './course/Coursecard'
+import TutorCard from './tutor/TutorCard';
 
 import './styles/mainStyle.scss';
 

@@ -4,18 +4,18 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Homepage from '../UI/Homepage';
 import AdminLogin from '../login/AdminLogin';
 import Admin from "../admin/Admin";
-import AdminCourseList from "../UI/adminUI/listModal/components/AdminCourseList";
-import AdminTutorList from "../UI/adminUI/listModal/components/AdminTutorList";
-import AdminStudentList from "../UI/adminUI/listModal/components/AdminStudentList";
+import AdminCourseList from "../admin/adminUI/listModal/components/AdminCourseList";
+import AdminTutorList from "../admin/adminUI/listModal/components/AdminTutorList";
+import AdminStudentList from "../admin/adminUI/listModal/components/AdminStudentList";
 
 
-import AddCourse from "../UI/adminUI/addModal/AddCourse";
-import AddTutor from "../UI/adminUI/addModal/AddTutor";
-import AddStudent from "../UI/adminUI/addModal/AddStudent";
+import AddCourse from "../admin/adminUI/addModal/AddCourse";
+import AddTutor from "../admin/adminUI/addModal/AddTutor";
+import AddStudent from "../admin/adminUI/addModal/AddStudent";
 
-import AdminCourseSearch from "../UI/adminUI/searchModal/components/AdminCourseSearch";
-import AdminStudentSearch from "../UI/adminUI/searchModal/components/AdminStudentSearch";
-import AdminTutorSearch from "../UI/adminUI/searchModal/components/AdminTutorSearch";
+import AdminCourseSearch from "../admin/adminUI/searchModal/components/AdminCourseSearch";
+import AdminStudentSearch from "../admin/adminUI/searchModal/components/AdminStudentSearch";
+import AdminTutorSearch from "../admin/adminUI/searchModal/components/AdminTutorSearch";
 
 const Routes = () => {
     return (
