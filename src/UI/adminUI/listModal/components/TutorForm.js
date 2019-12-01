@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TutorRow from './TutorRow';
+import TutorStudentRow from './TutorStudentRow';
 
 import '../styles/listModel.scss';
 
@@ -13,102 +13,102 @@ function TutorForm() {
 				<span className="col-md-2 course-title-tutor">Phone</span>
 			</div>
             <hr className="line-top"/>
-			<TutorRow
+			<TutorStudentRow
 				name="Tylor Swift"
 				email="Tylorswift@zerk.com"
 				phone="04166888"
 			/>
-			<TutorRow
+			<TutorStudentRow
 				name="Tylor Swift"
 				email="Tylorswift@zerk.com"
 				phone="04166888"
 			/>
-			<TutorRow
+			<TutorStudentRow
 				name="Tylor Swift"
 				email="Tylorswift@zerk.com"
 				phone="04166888"
 			/>
-			<TutorRow
+			<TutorStudentRow
 				name="Tylor Swift"
 				email="Tylorswift@zerk.com"
 				phone="04166888"
 			/>
-			<TutorRow
+			<TutorStudentRow
 				name="Tylor Swift"
 				email="Tylorswift@zerk.com"
 				phone="04166888"
 			/>
-			<TutorRow
+			<TutorStudentRow
 				name="Tylor Swift"
 				email="Tylorswift@zerk.com"
 				phone="04166888"
 			/>
-			<TutorRow
+			<TutorStudentRow
 				name="Tylor Swift"
 				email="Tylorswift@zerk.com"
 				phone="04166888"
 			/>
-			<TutorRow
+			<TutorStudentRow
 				name="Tylor Swift"
 				email="Tylorswift@zerk.com"
 				phone="04166888"
 			/>
-			<TutorRow
+			<TutorStudentRow
 				name="Tylor Swift"
 				email="Tylorswift@zerk.com"
 				phone="04166888"
 			/>
-			<TutorRow
+			<TutorStudentRow
 				name="Tylor Swift"
 				email="Tylorswift@zerk.com"
 				phone="04166888"
 			/>
-			<TutorRow
+			<TutorStudentRow
 				name="Tylor Swift"
 				email="Tylorswift@zerk.com"
 				phone="04166888"
 			/>
-			<TutorRow
+			<TutorStudentRow
 				name="Tylor Swift"
 				email="Tylorswift@zerk.com"
 				phone="04166888"
 			/>
-			<TutorRow
+			<TutorStudentRow
 				name="Tylor Swift"
 				email="Tylorswift@zerk.com"
 				phone="04166888"
 			/>
-			<TutorRow
+			<TutorStudentRow
 				name="Tylor Swift"
 				email="Tylorswift@zerk.com"
 				phone="04166888"
 			/>
-			<TutorRow
+			<TutorStudentRow
 				name="Tylor Swift"
 				email="Tylorswift@zerk.com"
 				phone="04166888"
 			/>
-			<TutorRow
+			<TutorStudentRow
 				name="Tylor Swift"
 				email="Tylorswift@zerk.com"
 				phone="04166888"
 			/>
-			<TutorRow
+			<TutorStudentRow
 				name="Tylor Swift"
 				email="Tylorswift@zerk.com"
 				phone="04166888"
 			/>
-			<TutorRow
+			<TutorStudentRow
 				name="Tylor Swift"
 				email="Tylorswift@zerk.com"
 				phone="04166888"
 			/>
-			<TutorRow
+			<TutorStudentRow
 				name="Tylor Swift"
 				email="Tylorswift@zerk.com"
 				phone="04166888"
 			/>
-			<TutorRow
+			<TutorStudentRow
 				name="Tylor Swift"
 				email="Tylorswift@zerk.com"
 				phone="04166888"

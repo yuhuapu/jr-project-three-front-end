@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../styles/listModel.scss';
+import './styles/numberList.scss';
 
 function NumberList(props) {
     const numbers = props.numbers;

@@ -2,7 +2,7 @@ import React from 'react';
 
 import '../styles/listModel.scss';
 
-function TutorRow(props) {
+function TutorStudentRow(props) {
 	return (
 		<div className="row course-list-row">
         
@@ -15,4 +15,4 @@ function TutorRow(props) {
 	);
 }
 
-export default TutorRow;
+export default TutorStudentRow;
