@@ -105,7 +105,7 @@ const AddCourse = props => {
                     <div className="col-md">
                         <div className="submit-button-container">
                             <button className="submit-button" type="submit" >Add</button>
-                            <button onClick={(e)=>{e.preventDefault(); props.onCloseButtonClick(false)}} className="submit-button">Cancle</button>
+                            <button onClick={(e)=>{e.preventDefault(); props.onCloseButtonClick(false)}} className="submit-button">Cancel</button>
                         </div>
                     </div>
                 </div>
