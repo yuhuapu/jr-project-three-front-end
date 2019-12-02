@@ -5,15 +5,19 @@ import AddStudent from './AddStudent';
 import AddTutor from './AddTutor';
 
 const SwitchAddForm = props => {
-    switch (props) {
+    const shouldDisplay = props.shouldDisplay;
+    
+    if (!shouldDisplay) return null;
+    
+    switch (props.addFormType) {
         case "Add Course":
-            return <AddCourse />;
+            return <AddCourse onCloseButtonClick = {props.onCloseButtonClick} />;
 
         case "Add Student":
-            return <AddStudent />;
+            return <AddStudent onCloseButtonClick = {props.onCloseButtonClick}/>;
 
         case "Add Tutor":
-            return <AddTutor />;
+            return <AddTutor onCloseButtonClick = {props.onCloseButtonClick}/>;
 
         default:
             break;

@@ -4,7 +4,6 @@ import Footer from '../UI/Footer';
 import DashMenu from './adminUI/DashMenu';
 import { ButtonText } from "./adminUI/menuButton/ButtonText"
 
-import PoppUpModal from '../UI/PopUpModal';
 import SwitchAddForm from "./adminUI/addModal/SwitchAddForm";
 
 
@@ -38,7 +37,11 @@ const Admin = () => {
                 />
                 <Footer />
             </div>
-            <PoppUpModal shouldDisplay={shouldDisplay}>{SwitchAddForm(addFormType)}</PoppUpModal>
+            <SwitchAddForm
+                shouldDisplay={shouldDisplay}
+                onCloseButtonClick={setShouldDisplay}
+                addFormType={addFormType}
+            />
         </div>
     );
 }

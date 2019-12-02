@@ -2,7 +2,7 @@ import React from 'react';
 
 import './styles/addModal.scss';
 
-const AddTutor = () => {
+const AddTutor = props => {
     return (
         <div className="add-modal">
             <form className="addCouese-container">
@@ -85,7 +85,7 @@ const AddTutor = () => {
                     <div className="col-md">
                         <div className="submit-button-container">
                             <button className="submit-button">Add</button>
-                            <button className="submit-button">Cancle</button>
+                            <button onClick={(e)=>{e.preventDefault(); props.onCloseButtonClick(false)}} className="submit-button">Cancle</button>
                         </div>
                     </div>
                 </div>
