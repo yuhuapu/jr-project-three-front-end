@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
+import {getInfo} from '../../../../utils/axios.js';
+
+
 import Navigation from '../../../../UI/Navigation';
 import Footer from '../../../../UI/Footer';
-import TutorForm from './TutorForm';
+import StudentTutorForm from './StudentTutorForm';
 import DashMenu from '../../DashMenu';
 import PageNumber from './PageNumber';
 import SwitchAddForm from "../../addModal/SwitchAddForm";
@@ -10,6 +13,16 @@ import { ButtonText } from "../../menuButton/ButtonText";
 const AdminTutorList = () => {
     const [shouldDisplay, setShouldDisplay] = useState(false);
     const [addFormType, setAddFormType] = useState("");
+    const [students, setStudents] = useState([]);
+    const [searchName,setSearchName] = useState("");
+
+
+	useEffect(()=> {
+		getInfo('tutors')
+            .then(res => setStudents(res.data));
+            setSearchName("Tutor");
+    },[]);
+
     return (
         <div className="row" >
             <div className="col-md-2" />
@@ -21,7 +34,10 @@ const AdminTutorList = () => {
                     setShouldDisplay={setShouldDisplay}
                     setAddFormType={setAddFormType}
                 />
-                <TutorForm />
+                <StudentTutorForm 
+                    students={students}
+                    searchName = {searchName}
+                />
                 <PageNumber />
                 <Footer />
             </div>

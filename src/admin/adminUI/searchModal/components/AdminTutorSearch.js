@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
+import {getInfo} from '../../../../utils/axios.js';
+
 import Navigation from '../../../../UI/Navigation';
 import DashMenu from '../../DashMenu';
-import TutorForm from '../../listModal/components/TutorForm';
+import StudentTutorForm from '../../listModal/components/StudentTutorForm';
 import PageNumber from '../../listModal/components/PageNumber';
 import Footer from '../../../../UI/Footer';
 import SearchBar from './SearchBar';
@@ -11,6 +13,22 @@ import SwitchAddForm from "../../addModal/SwitchAddForm";
 const AdminTutorSearch = () => {
     const [shouldDisplay, setShouldDisplay] = useState(false);
     const [addFormType, setAddFormType] = useState("");
+    const [students, setStudents] = useState([]);
+    const [input, setInput]=useState([]);
+    const [shouldSearch, setShouldSearch] = useState(false);
+    const [searchField,setSearchField] = useState("");
+    const [searchName,setSearchName] = useState("");
+
+
+
+	useEffect(()=> {
+		getInfo('tutors')
+            .then(res => setStudents(res.data));
+            setSearchField("tutors");
+            setSearchName("Tutor");
+
+    },[]);
+
     return (
         <div className="row" >
             <div className="col-md-2" />
@@ -22,8 +40,21 @@ const AdminTutorSearch = () => {
                     setShouldDisplay={setShouldDisplay}
                     setAddFormType={setAddFormType}
                 />
-                <SearchBar />
-                <TutorForm />
+               <SearchBar
+                   setInput={setInput}
+                   input={input}
+                   handleSearch={setStudents}
+                   shouldSearch = {shouldSearch}
+                   setShouldSearch = {setShouldSearch}
+                   setStudents = {setStudents}    
+                   searchField = {searchField}     
+                />
+                <StudentTutorForm 
+                    students={students}
+                    shouldSearch = {shouldSearch}
+                    searchName = {searchName}
+
+                />                
                 <PageNumber />
                 <Footer />
             </div>

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
+
 import Navigation from '../../../../UI/Navigation';
 import Footer from '../../../../UI/Footer';
 import CourseForm from './CourseForm';
@@ -11,6 +12,8 @@ const AdminCourseList = () => {
     const [shouldDisplay, setShouldDisplay] = useState(false);
     const [addFormType, setAddFormType] = useState("");
 
+  
+
     return (
         <div className="row main-container" >
             <div className="col-md-2" />
@@ -22,7 +25,7 @@ const AdminCourseList = () => {
                     setShouldDisplay={setShouldDisplay}
                     setAddFormType={setAddFormType}
                 />
-                <CourseForm />
+                <CourseForm/>
                 <PageNumber />
                 <Footer />
             </div>
