@@ -7,5 +7,5 @@ export const login = (email, password) => {
         email,
         password
     };
-    return post(url, data).then(response => console.log(response));
+    return post(url, data).then(response => response.data.token);
 };
