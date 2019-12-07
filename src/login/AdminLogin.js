@@ -8,7 +8,7 @@ import { setToken } from "../utils/authentication";
 import { ADMIN_DASHBOARD_URL } from '../routes/URLMap';
 
 const AdminLogin = (props) => {
-  const [states, setStates] = useState({
+  const [loginStates, setLoginStates] = useState({
     email: "",
     password: "",
     isLoading: false,
@@ -18,25 +18,25 @@ const AdminLogin = (props) => {
   const handleChange = event => {
     const key = event.target.name;
     const value = event.target.value;
-    setStates({ ...states, [key]: value });
+    setLoginStates({ ...loginStates, [key]: value });
   };
 
   const loginUser = event => {
-    setStates({ ...states, isLoading: true });
+    setLoginStates({ ...loginStates, isLoading: true });
     event.preventDefault();
   };
   
   useEffect(() => {
-    if (states.isLoading) {
-      login(states.email, states.password).then(token => {
+    if (loginStates.isLoading) {
+      login(loginStates.email, loginStates.password).then(token => {
         setToken(token);
-        setStates({ ...states, isLoading: false });
-        const locationState = states.location.state;
+        setLoginStates({ ...loginStates, isLoading: false });
+        const locationState = loginStates.location.state;
         const redirectTo = (locationState && locationState.from) || ADMIN_DASHBOARD_URL;
-        states.history.replace(redirectTo);
-      }).catch(()=>setStates({...states, isLoading: false}));
+        loginStates.history.replace(redirectTo);
+      }).catch(()=>setLoginStates({...loginStates, isLoading: false}));
     }
-  }, [states]);
+  }, [loginStates]);
 
 
   return (
@@ -45,12 +45,12 @@ const AdminLogin = (props) => {
      <form className="form col-sm-8">
        <img src={loginIcon} className="form-icon" alt="loginIcon" />
        <h4 className>Admin Login</h4>
-       <Segment basic loading={states.isLoading}>
+       <Segment basic loading={loginStates.isLoading}>
          <div className="form-group">        
            <input
              onChange={handleChange}
              name="email"
-             value={states.email}
+             value={loginStates.email}
              type="email"
              className="form-control"
              id="email"
@@ -61,7 +61,7 @@ const AdminLogin = (props) => {
            <input
              onChange={handleChange}
              name="password"
-             value={states.password}
+             value={loginStates.password}
              type="password"
              className="form-control"
              id="pwd"
