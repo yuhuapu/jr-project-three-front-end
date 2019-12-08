@@ -2,7 +2,7 @@ import React from 'react';
 
 import './styles/addModal.scss';
 
-const AddCourse = () => {
+const AddCourse = props => {
     return (
         <div className="add-modal">
             <form className="addCouese-container">
@@ -104,8 +104,8 @@ const AddCourse = () => {
                 <div className="row">
                     <div className="col-md">
                         <div className="submit-button-container">
-                            <button className="submit-button">Add</button>
-                            <button className="submit-button">Cancle</button>
+                            <button className="submit-button" type="submit" >Add</button>
+                            <button onClick={(e)=>{e.preventDefault(); props.onCloseButtonClick(false)}} className="submit-button">Cancel</button>
                         </div>
                     </div>
                 </div>
