@@ -8,6 +8,9 @@ import "../styles/searchModel.scss";
 import Search from "../../../../resource/img/search.svg";
 
 function SearchBar(props) {
+  const { input,searchName } = props;
+  const { setUsers,setCourses,setInput,setShouldSearch } = props;
+
   return (
     <form className="search-container">
       <div className="col-8 hint">Key Word:</div>
@@ -16,25 +19,26 @@ function SearchBar(props) {
           name="search"
           type="text"
           className="col-11 search-bar"
-          value={props.input}
-          onChange={event => props.setInput(event.target.value)}
+          value={input}
+          onChange={event => setInput(event.target.value)}
         />
         <div
           onClick={() => {
-            if (props.searchName === "Student") {
-              fetchStudentById(`${props.input}`).then(res =>
-                props.setUsers(res.data)
+            if (searchName === "Student") {
+              fetchStudentById(`${input}`).then(res =>
+                setUsers(res.data)
               );
-            } else if (props.searchName === "Tutor") {
-              fetchTutorById(`${props.input}`).then(res =>
-                props.setUsers(res.data)
+            } else if (searchName === "Tutor") {
+              fetchTutorById(`${input}`).then(res =>
+                setUsers(res.data)
               );
-            } else if (props.searchName === "Course") {
-              fetchCourseById(`${props.input}`).then(res =>
-                props.setCourses(res.data)
+            } else if (searchName === "Course") {
+              fetchCourseById(`${input}`).then(res =>
+                setCourses(res.data)
               );
             }
-            props.setShouldSearch(true);
+            setShouldSearch(true);
+
           }}
         >
           <img src={Search} className="search-icon" alt="search-icon" />

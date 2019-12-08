@@ -5,6 +5,7 @@ import CourseRow from "./CourseRow";
 import "../styles/listModel.scss";
 
 function CourseForm(props) {
+  const { courses } = props;
   return (
     <section className="course-list">
       <div className="row course-form-title">
@@ -17,7 +18,7 @@ function CourseForm(props) {
       </div>
       <hr className="line-top" />
       {!props.shouldSearch ? (
-        props.courses.map(course => (
+        courses.map(course => (
           <CourseRow
             key={course._id}
             name={course.courseName}
@@ -28,9 +29,11 @@ function CourseForm(props) {
         ))
       ) : (
         <CourseRow
-          key={props.courses._id}
-          name={props.courses.courseName}
-          date={props.courses.coursePeriod}
+          key={courses._id}
+          name={courses.courseName}
+          date={courses.coursePeriod}
+          tutor={courses.tutorId}
+          student={courses.studentId}
         />
       )}
     </section>
