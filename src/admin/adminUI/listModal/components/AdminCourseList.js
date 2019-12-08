@@ -1,4 +1,6 @@
-import React, {useState} from 'react';
+import React, { useState,useEffect } from 'react';
+import { fetchCourses } from "../../../../utils/api/course";
+
 
 import Navigation from '../../../../UI/Navigation';
 import Footer from '../../../../UI/Footer';
@@ -11,8 +13,13 @@ import { ButtonText } from "../../menuButton/ButtonText";
 const AdminCourseList = () => {
     const [shouldDisplay, setShouldDisplay] = useState(false);
     const [addFormType, setAddFormType] = useState("");
-
+    const [courses, setCourses] = useState([]);
+    const [searchName, setSearchName] = useState("");
   
+    useEffect(() => {
+        fetchCourses().then(res => setCourses(res.data));
+        setSearchName("Course");
+    }, []);
 
     return (
         <div className="row main-container" >
@@ -25,7 +32,10 @@ const AdminCourseList = () => {
                     setShouldDisplay={setShouldDisplay}
                     setAddFormType={setAddFormType}
                 />
-                <CourseForm/>
+                <CourseForm 
+                    courses={courses} 
+                    searchName={searchName} 
+                />
                 <PageNumber />
                 <Footer />
             </div>
