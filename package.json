@@ -3,10 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
     "axios": "^0.19.0",
     "jsonwebtoken": "^8.5.1",
-=======
     "@rooks/use-did-mount": "^3.4.1",
     "axios": "^0.19.0",
 >>>>>>> master
