@@ -1,8 +1,10 @@
 import React from 'react';
+// import SwitchAddForm from "./SwitchAddForm";
 
 import './styles/addModal.scss';
 
 const AddCourse = props => {
+    
     return (
         <div className="add-modal">
             <form className="addCouese-container">
@@ -12,8 +14,12 @@ const AddCourse = props => {
                         <p>Course Name</p>
                     </div>
 
-                    <div className="col-md-9">
-                        <input name="courseName" type="text" className="course-name" />
+                    <div className="col-md-6">
+                        <input name="courseName" type="text" className="course-name" onChange={props.handleCourseInput} />
+                    </div>
+
+                    <div className="col-md-3">
+                        <input name="code" type="text" className="course-code" placeholder="Couese Code" onChange={props.handleCourseInput} />
                     </div>
                 </div>
 
@@ -23,13 +29,14 @@ const AddCourse = props => {
                         <p>Course Period</p>
                     </div>
                     <div className="col-md-4">
-                        <input name="startDate" type="text" placeholder="Day/Month/Year" className="course-period" />
+                        <input 
+                        name="startDate" type="text" placeholder="Day/Month/Year" className="course-period" onFocus={(e) => e.target.type = 'date'} onChange={props.handleCourseInput} />
                     </div>
                     <div className="col-md-1">
                         <span> - </span>
                     </div>
                     <div className="col-md-4">
-                        <input name="startDate" type="text" placeholder="Day/Month/Year" className="course-period" />
+                        <input name="endDate" type="text" placeholder="Day/Month/Year" className="course-period" onFocus={(e) => e.target.type = 'date'} onChange={props.handleCourseInput} />
                     </div>
                 </div>
 
@@ -41,7 +48,7 @@ const AddCourse = props => {
 
                 <div className="row">
                     <div className="col-md-12">
-                        <textarea name="courseDescription" className="description-box" />
+                        <textarea name="description" className="description-box" onChange={props.handleCourseInput}/>
                     </div>
                 </div>
 
@@ -104,7 +111,7 @@ const AddCourse = props => {
                 <div className="row">
                     <div className="col-md">
                         <div className="submit-button-container">
-                            <button className="submit-button" type="submit" >Add</button>
+                            <button onClick={props.handleCreate} className="submit-button" >Add</button>
                             <button onClick={(e)=>{e.preventDefault(); props.onCloseButtonClick(false)}} className="submit-button">Cancel</button>
                         </div>
                     </div>
