@@ -15,6 +15,12 @@
         display: block;
         margin-bottom: 5%;
     }
+    .has-error {
+        border: 1px solid #a94442;
+    }
+    .error-text {
+        color: #a94442;
+    }
     button{
         border: none;
         width: 150px;
@@ -29,4 +35,15 @@
             background-size: 100% 100%;
         }
     }
+    .spinner-location {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+    }
+}
+
+.overlay {
+    background: white;
+    pointer-events: none;
+    opacity: .5;
 }
