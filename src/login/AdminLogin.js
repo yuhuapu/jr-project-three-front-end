@@ -6,7 +6,7 @@ import { login } from "../utils/api/auth";
 import { setToken } from "../utils/authentication";
 import { ADMIN_DASHBOARD_URL } from "../routes/URLMap";
 
-const AdminLogin = (props) => {
+const AdminLogin = props => {
   const [loginStates, setLoginStates] = useState({
     email: "",
     password: "",
@@ -52,9 +52,7 @@ const AdminLogin = (props) => {
   }, [loginStates]);
 
   const overlay = loginStates.isLoading ? "overlay" : "";
-  const spinnerClass = loginStates.isLoading
-    ? "spinner-border spinner-location"
-    : "";
+  const spinner = loginStates.isLoading ? "spinner-border" : "";
   const style = loginStates.isErrShowing ? {} : { display: "none" };
   const inputError = loginStates.isErrShowing ? "has-error" : "";
 
@@ -91,7 +89,9 @@ const AdminLogin = (props) => {
           <label className="error-text">Invalid username or password!</label>
         </div>
         <button onClick={loginUser}>Login</button>
-        <div className={spinnerClass}></div>
+        <div className="spinner-location">
+          <div className={spinner}></div>
+        </div>
       </form>
       <div className="col-sm-2" />
     </div>
