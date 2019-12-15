@@ -7,7 +7,7 @@ import "./styles/dashMenu.scss";
 import MenuButton from './menuButton/MenuButton';
 
 function DashMenu(props) {
-
+    
     return (
         <div className="dash-menu">
             <div className="row">
