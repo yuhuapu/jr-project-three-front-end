@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Homepage from '../UI/Homepage';
+import Login from '../login/Login';
+
 import AdminLogin from '../login/AdminLogin';
 import Admin from "../admin/Admin";
 import AdminCourseList from "../admin/adminUI/listModal/components/AdminCourseList";
@@ -35,7 +37,7 @@ const Routes = () => {
 
 
                 <Route path="/" component={Homepage} />
-        
+                <Route path="/login" component={Login} />
             </Switch>
         </Router>
     );

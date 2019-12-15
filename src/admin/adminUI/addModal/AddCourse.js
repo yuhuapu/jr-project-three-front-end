@@ -5,7 +5,7 @@ import './styles/addModal.scss';
 const AddCourse = props => {
     return (
         <div className="add-modal">
-            <form className="addCouese-container">
+            <form className="addCourse-container">
                 <h4>Course Info</h4>
                 <div className="row">
                     <div className="col-md-3">
