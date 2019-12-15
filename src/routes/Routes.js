@@ -17,21 +17,23 @@ import AdminCourseSearch from "../admin/adminUI/searchModal/components/AdminCour
 import AdminStudentSearch from "../admin/adminUI/searchModal/components/AdminStudentSearch";
 import AdminTutorSearch from "../admin/adminUI/searchModal/components/AdminTutorSearch";
 
+import AdminProtectedRoute from './components/AdminProtectedRoute';
+
 const Routes = () => {
     return (
         <Router>
             <Switch>
                 <Route exact path="/admin" component={AdminLogin} />
-                <Route exact path="/admin/dashboard" component={Admin} />
-                <Route exact path="/admin/dashboard/courselist" component={AdminCourseList} />
-                <Route exact path="/admin/dashboard/tutorlist" component={AdminTutorList} />
-                <Route exact path="/admin/dashboard/studentlist" component={AdminStudentList} />
-                <Route exact path="/admin/dashboard/addcourse" component={AddCourse} />
-                <Route exact path="/admin/dashboard/addstudent" component={AddStudent} />
-                <Route exact path="/admin/dashboard/addtutor" component={AddTutor} />
-                <Route exact path="/admin/dashboard/coursesearch" component={AdminCourseSearch} />
-                <Route exact path="/admin/dashboard/studentsearch" component={AdminStudentSearch} />
-                <Route exact path="/admin/dashboard/tutorsearch" component={AdminTutorSearch} />
+                <AdminProtectedRoute exact path="/admin/dashboard" component={Admin} />
+                <AdminProtectedRoute exact path="/admin/dashboard/courselist" component={AdminCourseList} />
+                <AdminProtectedRoute exact path="/admin/dashboard/tutorlist" component={AdminTutorList} />
+                <AdminProtectedRoute exact path="/admin/dashboard/studentlist" component={AdminStudentList} />
+                <AdminProtectedRoute exact path="/admin/dashboard/addcourse" component={AddCourse} />
+                <AdminProtectedRoute exact path="/admin/dashboard/addstudent" component={AddStudent} />
+                <AdminProtectedRoute exact path="/admin/dashboard/addtutor" component={AddTutor} />
+                <AdminProtectedRoute exact path="/admin/dashboard/coursesearch" component={AdminCourseSearch} />
+                <AdminProtectedRoute exact path="/admin/dashboard/studentsearch" component={AdminStudentSearch} />
+                <AdminProtectedRoute exact path="/admin/dashboard/tutorsearch" component={AdminTutorSearch} />
 
 
                 <Route path="/" component={Homepage} />
