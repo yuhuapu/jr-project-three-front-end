@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Navigation from '../UI/Navigation';
+import AdminNav from './adminUI/AdminNav';
 import Footer from '../UI/Footer';
 import DashMenu from './adminUI/DashMenu';
 import { ButtonText } from "./adminUI/menuButton/ButtonText"
@@ -16,7 +16,7 @@ const Admin = () => {
         <div className="row" >
             <div className="col-md-2" />
             <div className="col-md-8 main-container" >
-                <Navigation />
+                <AdminNav />
                 <DashMenu
                     menuText={ButtonText.courseText}
                     styleText={ButtonText.styleText[0]}
