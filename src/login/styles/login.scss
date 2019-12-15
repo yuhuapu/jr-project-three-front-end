@@ -1,18 +1,46 @@
 .login-modal {
     width: 100%;
-    height: 150%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
     top: 0;
     left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    .login-container {
+        background-color:white;
+        border-radius: 5px;
+        padding: 5%;
+        width: 30%;
+        height: 40%;
 
-}
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 30px;
+            height: 30px;
+        }
 
-.login-container {
-    margin: 10% 30% 10% 30%;
-    background-color:white;
-    border-radius: 5px;
-    text-align: left;
-    padding: 5%;    
+        h5 {
+            margin-top: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button {
+            width: 150px;
+            background-color: white;
+            border-radius: 5px;
+            border-style: solid;
+            padding: 3px 15px;
+        }
+    }
 }
