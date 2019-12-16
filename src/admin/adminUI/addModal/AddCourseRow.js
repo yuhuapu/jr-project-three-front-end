@@ -16,7 +16,7 @@ const AddCourseRow = props => {
         <div className="row">
             <span className="col-md-3">{courseName}</span>
             <span className="col-md-7">{startDate}  -  {endDate}</span>
-            <button 
+            <span className="col-md-2"><button 
             className={buttonClass}
             disabled={isButtonClicked}
             onClick = {(e)=>{
@@ -29,6 +29,7 @@ const AddCourseRow = props => {
             >
                 Add
                 </button>
+                </span>
         </div>
     );
 };
