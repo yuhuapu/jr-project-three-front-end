@@ -7,7 +7,7 @@ import "./styles/adminNav.scss";
 const AdminNav = () => {
     return (
         <nav className="navbar navbar-expand-xl|lg|md|sm">
-            <Link to="/">
+            <Link to="/admin/dashboard">
                 <img src = {zerkAdminLogo} className = "admin-logo" alt = "zerk admin logo" />
             </Link>
 

@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { createTutor } from '../../../utils/api/tutor';
 import './styles/addModal.scss';
+import SwitchAddForm from './SwitchAddForm';
 
 const AddTutor = props => {
     const adminRestProps = props.adminRestProps;
+    const [shouldDisplay, setShouldDisplay] = useState(false);
+    const [addFormType, setAddFormType] = useState('');
     const [tutorStates, setTutorStates] = useState({
         firstName: '',
         lastName: '',
@@ -15,18 +18,34 @@ const AddTutor = props => {
         courses: [],
     });
 
+    const [courseNames, setCourseNames] = useState([]);
+
+    const [courseNumber, setCourseNumber] = useState(0);
+
     const handleTutorInput = event => {
         const key = event.target.name;
         const value = event.target.value;
         setTutorStates({ ...tutorStates, [key]: value });
     };
 
+    const handleCourseIDs = courseIDs => {
+        setTutorStates({...tutorStates, courses: courseIDs});
+    };
+    
     const handleCreate = event => {
         event.preventDefault();
         const student = { ...tutorStates };
         createTutor(student).then(() => {
-            adminRestProps.history.push('/admin/dashboard/studentlist');
+            adminRestProps.history.push('/admin/dashboard/tutorlist');
         });
+    };
+
+    const CourseName = () => {
+        if (courseNumber > 0) {
+            return (courseNames.map((name, i) => <button key={i} className="edit-button">{name}</button>));
+        } else {
+            return null;
+        }
     };
 
     return (
@@ -74,7 +93,7 @@ const AddTutor = props => {
 
                     <div className="col-md-6">
                         <p>DOB</p>
-                        <input name="DOB" type="text" placeholder="Day/Month/Year" className="input-boxs" onChange={handleTutorInput} />
+                        <input name="dateOfBirth" type="text" placeholder="Day/Month/Year" className="input-boxs" onFocus={(e) => e.target.type = 'date'} onChange={handleTutorInput} />
                     </div>
                 </div>
 
@@ -112,12 +131,28 @@ const AddTutor = props => {
                     <div className="col-md-3">
                         <p>Courses</p>
                     </div>
+                    <div className="col-md-7" />
+                    <div className="col-md-2">
+                        <p>Total: {courseNumber} </p>
+                    </div>
+                </div>
+
+                <div className="row">
+                    <CourseName />
                 </div>
 
                 <div className="row">
                     <div className="col-md-8" />
                     <div className="col-md-4">
-                        <button className="edit-button">Add</button>
+                    <button 
+                        className="edit-button" 
+                        onClick={(e)=> {
+                            e.preventDefault(); 
+                            setAddFormType('Course List');
+                            setShouldDisplay(true);
+                            }}>
+                        Add
+                        </button>
                         <button className="edit-button">Edit</button>
                         <button className="edit-button">Delete</button>
                     </div>
@@ -134,6 +169,15 @@ const AddTutor = props => {
                     </div>
                 </div>
             </form>
+            <SwitchAddForm 
+            shouldDisplay={shouldDisplay}
+            onCloseButtonClick={setShouldDisplay}
+            addFormType={addFormType}
+            handleCourseIDs={handleCourseIDs}
+            courseNames={courseNames}
+            setCourseNames={setCourseNames}
+            setCourseNumber={setCourseNumber}
+            />
         </div>
     );
 }
