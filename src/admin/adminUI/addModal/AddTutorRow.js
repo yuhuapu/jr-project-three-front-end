@@ -15,6 +15,7 @@ const AddTutorRow = props => {
             <span className="col-md-3">{props.name}</span>
             <span className="col-md-5">{props.email}</span>
             <span className="col-md-2">{props.phone}</span>
+            <span className="col-md-2">
             <button 
             className={buttonClass}
             disabled={isButtonClicked}
@@ -28,6 +29,7 @@ const AddTutorRow = props => {
             >
                 Add
                 </button>
+            </span>
         </div>
     );
 };

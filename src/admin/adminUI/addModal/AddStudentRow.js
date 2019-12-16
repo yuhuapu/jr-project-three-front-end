@@ -14,7 +14,7 @@ const AddStudentRow = props => {
             <span className="col-md-3">{props.name}</span>
             <span className="col-md-5">{props.email}</span>
             <span className="col-md-2">{props.phone}</span>
-            <button 
+            <span className="col-md-2"><button 
             className={buttonClass}
             disabled={isButtonClicked}
             onClick = {(e)=>{
@@ -26,7 +26,7 @@ const AddStudentRow = props => {
             }}
             >
                 Add
-                </button>
+                </button></span>
         </div>
     );
 };
