@@ -5,6 +5,7 @@ import AddStudent from './AddStudent';
 import AddTutor from './AddTutor';
 import AddTutorList from './AddTutorList';
 import AddStudentList from './AddStudentList';
+import AddCourseList from './AddCourseList';
 
 const SwitchAddForm = props => {
     const shouldDisplay = props.shouldDisplay;
@@ -46,6 +47,15 @@ const SwitchAddForm = props => {
                 studentNames={props.studentNames}
                 setStudentNames={props.setStudentNames}
                 setStudentNumber={props.setStudentNumber}
+            />
+
+        case "Course List":
+            return <AddCourseList 
+            onCloseButtonClick={props.onCloseButtonClick}
+            handleCourseIDs={props.handleCourseIDs}
+            courseNames={props.courseNames}
+            setCourseNames={props.setCourseNames}
+            setCourseNumber={props.setCourseNumber}
             />
         default:
             break;
