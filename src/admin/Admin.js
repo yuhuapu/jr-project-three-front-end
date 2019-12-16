@@ -6,12 +6,10 @@ import { ButtonText } from "./adminUI/menuButton/ButtonText"
 
 import SwitchAddForm from "./adminUI/addModal/SwitchAddForm";
 
-
-
-const Admin = () => {
+const Admin = props => {
     const [shouldDisplay, setShouldDisplay] = useState(false);
-    const [addFormType, setAddFormType] = useState("");
-
+    const [addFormType, setAddFormType] = useState('');
+    const [adminRestProps] = useState(props);
     return (
         <div className="row" >
             <div className="col-md-2" />
@@ -41,6 +39,7 @@ const Admin = () => {
                 shouldDisplay={shouldDisplay}
                 onCloseButtonClick={setShouldDisplay}
                 addFormType={addFormType}
+                adminRestProps={adminRestProps}
             />
         </div>
     );

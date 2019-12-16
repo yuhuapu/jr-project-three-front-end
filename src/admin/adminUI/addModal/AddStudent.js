@@ -1,8 +1,35 @@
-import React from 'react';
-
+import React, { useState } from 'react';
+import { createStudent } from '../../../utils/api/student';
 import './styles/addModal.scss';
 
-const AddTutor = props => {
+const AddStudent = props => {
+    const adminRestProps = props.adminRestProps;
+
+    const [studentStates, setStudentStates] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        dateOfBirth: '',
+        gender: '',
+        mobile: '',
+        note: '',
+        courses: [],
+    });
+
+    const handleStudentInput = event => {
+        const key = event.target.name;
+        const value = event.target.value;
+        setStudentStates({ ...studentStates, [key]: value });
+    };
+
+    const handleCreate = event => {
+        event.preventDefault();
+        const student = { ...studentStates };
+        createStudent(student).then(() => {
+            adminRestProps.history.push('/admin/dashboard/studentlist');
+        });
+    };
+
     return (
         <div className="add-modal">
             <form className="addCouese-container">
@@ -11,40 +38,58 @@ const AddTutor = props => {
                 <div className="row">
                     <div className="col-md-6">
                         <p>First Name</p>
-                        <input name="firstName" type="text" className="input-boxs" />
+                        <input name="firstName" type="text" className="input-boxs" onChange={handleStudentInput} />
                     </div>
 
                     <div className="col-md-6">
                         <p>Last Name</p>
-                        <input name="lastName" type="text" className="input-boxs" />
+                        <input name="lastName" type="text" className="input-boxs" onChange={handleStudentInput} />
                     </div>
                 </div>
 
                 <div className="row">
                     <div className="col-md-6">
                         <p>Gender</p>
-                        <button className="edit-button">Male</button>
-                        <button className="edit-button">Female</button>
-                        <button className="edit-button">Others</button>
+                        <button className="edit-button"
+                        onClick={(e)=>{
+                            e.preventDefault();
+                            setStudentStates({ ...studentStates, gender: "Male" })
+                        }}>
+                            Male
+                        </button>
+                        <button className="edit-button"
+                        onClick={(e)=>{
+                            e.preventDefault();
+                            setStudentStates({ ...studentStates, gender: "Female" })
+                        }}>
+                            Female
+                        </button>
+                        <button className="edit-button" 
+                        onClick={(e)=>{
+                            e.preventDefault();
+                            setStudentStates({ ...studentStates, gender: "Others" })
+                        }}>
+                            Others
+                        </button>
                     </div>
 
                     <div className="col-md-6">
                         <p>DOB</p>
-                        <input name="DOB" type="text" placeholder="Day/Month/Year" className="input-boxs" />
+                        <input name="DOB" type="text" placeholder="Day/Month/Year" className="input-boxs" onChange={handleStudentInput} />
                     </div>
                 </div>
 
                 <hr />
 
                 <div className="row">
-                <div className="col-md-6">
+                    <div className="col-md-6">
                         <p>Mobile</p>
-                        <input name="mobile" type="text" className="input-boxs" />
+                        <input name="mobile" type="text" className="input-boxs" onChange={handleStudentInput} />
                     </div>
 
                     <div className="col-md-6">
                         <p>Email</p>
-                        <input name="email" type="text" className="input-boxs" />
+                        <input name="email" type="text" className="input-boxs" onChange={handleStudentInput} />
                     </div>
                 </div>
 
@@ -58,7 +103,7 @@ const AddTutor = props => {
 
                 <div className="row">
                     <div className="col-md-12">
-                        <textarea name="courseDescription" className="description-box" />
+                        <textarea name="note" className="description-box" onChange={handleStudentInput} />
                     </div>
                 </div>
 
@@ -84,8 +129,8 @@ const AddTutor = props => {
                 <div className="row">
                     <div className="col-md">
                         <div className="submit-button-container">
-                            <button className="submit-button">Add</button>
-                            <button onClick={(e)=>{e.preventDefault(); props.onCloseButtonClick(false)}} className="submit-button">Cancel</button>
+                            <button onClick={handleCreate} className="submit-button" >Add</button>
+                            <button onClick={(e) => { e.preventDefault(); props.onCloseButtonClick(false) }} className="submit-button">Cancel</button>
                         </div>
                     </div>
                 </div>
@@ -94,4 +139,4 @@ const AddTutor = props => {
     );
 }
 
-export default AddTutor;
+export default AddStudent;
