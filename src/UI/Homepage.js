@@ -8,9 +8,9 @@ import Signup from "../signup/Signup";
 import Login from "../login/Login";
 import "../login/styles/login.scss";
 
-const Homepage = () => {
+const Homepage = props => {
   const [shouldLoginDisplay, setShouldLoginDisplay] = useState(false);
-
+console.log(props.history);
   return (
     <div>
       <div className="row">
@@ -25,6 +25,7 @@ const Homepage = () => {
       <div className="col-sm-2" />
       </div>
       <Login
+        history={props.history}
         shouldLoginDisplay={shouldLoginDisplay}
         setShouldLoginDisplay={setShouldLoginDisplay}
       />

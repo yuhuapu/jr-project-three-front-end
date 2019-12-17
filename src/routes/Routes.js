@@ -38,8 +38,8 @@ const Routes = () => {
                 <AdminProtectedRoute exact path="/admin/dashboard/tutorsearch" component={AdminTutorSearch} />
 
 
-                <Route path="/" component={Homepage} />
-                <Route path="/login" component={Login} />
+                <Route exact path="/" component={Homepage} />
+                <Route exact path="/students" component={Homepage} />
             </Switch>
         </Router>
     );

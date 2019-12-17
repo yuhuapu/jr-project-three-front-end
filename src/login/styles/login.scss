@@ -1,46 +1,103 @@
 .login-modal {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    .login-container {
-        background-color:white;
-        border-radius: 5px;
-        padding: 5%;
-        width: 30%;
-        height: 40%;
+  .login-container {
+    position: relative;
+    background-color: white;
+    border-radius: 5px;
+    padding: 2%;
+    width: 20%;
+    height: 40%;
 
-        img {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 30px;
-            height: 30px;
-        }
-
-        h5 {
-            margin-top: 10px;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        .options {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        button {
-            width: 150px;
-            background-color: white;
-            border-radius: 5px;
-            border-style: solid;
-            padding: 3px 15px;
-        }
+    .closeButton {
+      position: absolute;
+      right: 10px;
+      top: 5px;
+      cursor: pointer;
     }
+
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 30px;
+      height: 30px;
+    }
+
+    h5 {
+      margin-top: 10px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .options {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #login {
+      display: flex;
+      justify-content: center;
+
+      button {
+        border: none;
+        width: 150px;
+        height: 20px;
+        font-size: 16px;
+        background: url("../../resource/img/log-in.png") no-repeat;
+        background-size: 100% 100%;
+        margin-top: 10px;
+        &:hover {
+          font-weight: bold;
+          background: url("../../resource/img/log-in-hover.png") no-repeat;
+          background-size: 100% 100%;
+        }
+      }
+    }
+
+    .has-error {
+        border: 1px solid #a94442;
+    }
+    .error-text {
+        margin: 10px 10px;
+        text-align: center;
+        color: #a94442;
+    }
+    .role-not-selected {
+      width: 45%;
+      border-style: solid;
+      border-radius: 5px;
+      padding: 3px 15px;
+      background-color: white;
+    }
+    .role-selected {
+      width: 45%;
+      border-style: solid;
+      border-radius: 5px;
+      border-width: bold;
+      padding: 3px 15px;
+      background-color: white;
+    }
+
+    .spinner-location {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+  }
+
+  .overlay {
+    background: white;
+    pointer-events: none;
+    opacity: 0.5;
+  }
 }
