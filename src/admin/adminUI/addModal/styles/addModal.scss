@@ -17,6 +17,14 @@
             background-color: black;
         }
     }
+    .button-clicked{
+        margin: 0 10px 10px 0;
+        background-color: black;
+        color: white;
+        padding: 5px 7px 5px 7px;
+        border: solid black 1px;
+        border-radius: 5px;
+    }
     .submit-button-container{
         text-align: center;
     }
@@ -57,13 +65,22 @@
     .row{
         margin-top: 2%;
     }
+
     .course-name{
-        width: 95%;
+        width: 100%;
         border-radius: 5px;
         background-color: rgba(0, 0, 0, 0.05);
     }
+
+    .course-code{
+        width: 93%;
+        border-radius: 5px;
+        background-color: rgba(0, 0, 0, 0.05);
+        text-align: center;
+    }
+
     .course-period{
-        width: 178px;
+        width: 95%;
         text-align: center;
         border-radius: 5px;
         background-color: rgba(0, 0, 0, 0.05);

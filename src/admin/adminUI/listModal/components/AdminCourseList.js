@@ -10,11 +10,12 @@ import PageNumber from './PageNumber';
 import SwitchAddForm from "../../addModal/SwitchAddForm";
 import { ButtonText } from "../../menuButton/ButtonText";
 
-const AdminCourseList = () => {
+const AdminCourseList = props => {
     const [shouldDisplay, setShouldDisplay] = useState(false);
     const [addFormType, setAddFormType] = useState("");
     const [courses, setCourses] = useState([]);
     const [searchName, setSearchName] = useState("");
+    const [adminRestProps] = useState(props);
   
     useEffect(() => {
         fetchCourses().then(res => setCourses(res.data));
@@ -44,6 +45,7 @@ const AdminCourseList = () => {
                 shouldDisplay={shouldDisplay}
                 onCloseButtonClick={setShouldDisplay}
                 addFormType={addFormType}
+                adminRestProps={adminRestProps}
             />
         </div>
     );

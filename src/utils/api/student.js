@@ -1,11 +1,17 @@
-import axios from 'axios';
+import { get, post } from './axios';
+
+const API_STUDENT_URL = '/students';
+const getApiStudentUrlWithId = id => `${API_STUDENT_URL}/${id}`;
+
+export const createStudent = course => {
+    return post(API_STUDENT_URL, course).then(res => res.data.data);
+};
 
 export const fetchStudents = () => {
-    const url = `https://jr-project-three-back-end.herokuapp.com/api/v1/students`;
-    return axios(url);
+  return get(API_STUDENT_URL);
 };
 
 export const fetchStudentById = id => {
-    const url = `https://jr-project-three-back-end.herokuapp.com/api/v1/students/${id}`;
-    return axios(url);
+  const url = getApiStudentUrlWithId(id);
+  return get(url)
 };
