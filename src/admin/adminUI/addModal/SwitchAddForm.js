@@ -6,6 +6,7 @@ import AddTutor from './AddTutor';
 import AddTutorList from './AddTutorList';
 import AddStudentList from './AddStudentList';
 import AddCourseList from './AddCourseList';
+import EditCourse from '../editModal/EditCourse';
 
 const SwitchAddForm = props => {
     const shouldDisplay = props.shouldDisplay;
@@ -56,6 +57,11 @@ const SwitchAddForm = props => {
             courseNames={props.courseNames}
             setCourseNames={props.setCourseNames}
             setCourseNumber={props.setCourseNumber}
+            />
+
+        case "Edit Course":
+            return <EditCourse 
+            onCloseButtonClick={props.onCloseButtonClick}
             />
         default:
             break;

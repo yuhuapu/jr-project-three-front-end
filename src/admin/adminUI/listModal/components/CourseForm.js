@@ -25,6 +25,8 @@ function CourseForm(props) {
             date={course.coursePeriod}
             tutor={course.tutorId.length}
             student={course.studentId.length}
+            setShouldDisplay={props.setShouldDisplay}
+            setAddFormType={props.setAddFormType}
           />
         ))
       ) : (
@@ -34,6 +36,8 @@ function CourseForm(props) {
           date={courses.coursePeriod}
           tutor={courses.tutorId}
           student={courses.studentId}
+          setShouldDisplay={props.setShouldDisplay}
+          setAddFormType={props.setAddFormType}
         />
       )}
     </section>

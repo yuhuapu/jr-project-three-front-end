@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-import { createCourse } from '../../../utils/api/course';
-import './styles/addModal.scss';
-import SwitchAddForm from './SwitchAddForm';
+import { updateCourse } from '../../../utils/api/course';
+import '../addModal/styles/addModal.scss';
+import SwitchAddForm from '../addModal/SwitchAddForm';
 
-const AddCourse = props => {
+const EditCourse = props => {
     const adminRestProps = props.adminRestProps;
     const [shouldDisplay, setShouldDisplay] = useState(false);
     const [addFormType, setAddFormType] = useState('');
@@ -20,8 +20,6 @@ const AddCourse = props => {
 
     const [tutorNames, setTutorNames] = useState([]);
     const [studentNames, setStudentNames] = useState([]);
-    const [deleteTutorNames, setDeleteTutorNames] = useState([]);
-    const [deleteStudentNames, setDeleteStudentNames] = useState([]);
 
     const [tutorNumber, setTutorNumber] = useState(0);
     const [studentNumber, setStudentNumber] = useState(0);
@@ -40,50 +38,25 @@ const AddCourse = props => {
         setCourseStates({...courseStates, studentIDs: studentIDs});
     };
 
-    const deleteTutorName = deleteTutorNames => {
-        const newTutorNames = [...tutorNames];
-        
-    }
-
-    const handleCreate = event => {
+    const handleUpdate = event => {
         event.preventDefault();
         const course = {...courseStates};
-        createCourse(course).then(() => {
+        updateCourse(course).then(() => {
             adminRestProps.history.push('/admin/dashboard/courselist');
         });
     };
 
-    // Need to be updated
     const TutorName = () => {
         if (tutorNumber > 0) {
-            return (tutorNames.map((name, i) => 
-            <button 
-            key={i} 
-            className="edit-button" 
-            onClick={(e)=> {
-            e.preventDefault();
-            setDeleteTutorNames(deleteTutorNames.concat(name));
-        }}>
-                {name}
-            </button>));
+            return (tutorNames.map((name, i) => <button key={i} className="edit-button">{name}</button>));
         } else {
             return null;
         }
     };
 
-    // Need to be updated
     const StudentName = () => {
         if (studentNumber > 0) {
-            return (studentNames.map((name, i) => 
-            <button 
-            key={i} 
-            className="edit-button" 
-            onClick={(e)=> {
-                e.preventDefault(); 
-                setDeleteStudentNames({name});
-                }}>
-                {name}
-            </button>));
+            return (studentNames.map((name, i) => <button key={i} className="edit-button">{name}</button>));
         } else {
             return null;
         }
@@ -153,8 +126,8 @@ const AddCourse = props => {
                 </div>
                 
                 <div className="row">
-                    <div className="col-md-9" />
-                    <div className="col-md-3">
+                    <div className="col-md-8" />
+                    <div className="col-md-4">
                     <button 
                         className="edit-button" 
                         onClick={(e)=> {
@@ -164,15 +137,8 @@ const AddCourse = props => {
                             }}>
                         Add
                         </button>
-                        {/* <button className="edit-button">Edit</button> */}
-                    <button 
-                    className="edit-button" 
-                    onClick={(e)=> {
-                        e.preventDefault(); 
-                        deleteTutorName();
-                        }}>
-                    Delete
-                    </button>
+                        <button className="edit-button">Edit</button>
+                        <button className="edit-button">Delete</button>
                     </div>
                 </div>
 
@@ -191,8 +157,8 @@ const AddCourse = props => {
                     <StudentName />
                 </div>
                 <div className="row">
-                    <div className="col-md-9" />
-                    <div className="col-md-3">
+                    <div className="col-md-8" />
+                    <div className="col-md-4">
                         <button 
                         className="edit-button" 
                         onClick={(e)=> {
@@ -202,7 +168,7 @@ const AddCourse = props => {
                             }}>
                         Add
                         </button>
-                        {/* <button className="edit-button">Edit</button> */}
+                        <button className="edit-button">Edit</button>
                         <button className="edit-button">Delete</button>
                     </div>
                 </div>
@@ -224,7 +190,7 @@ const AddCourse = props => {
                 <div className="row">
                     <div className="col-md">
                         <div className="submit-button-container">
-                            <button onClick={handleCreate} className="submit-button" >Add</button>
+                            <button onClick={handleUpdate} className="submit-button" >Update</button>
                             <button onClick={(e)=>{e.preventDefault(); props.onCloseButtonClick(false)}} className="submit-button">Cancel</button>
                         </div>
                     </div>
@@ -248,4 +214,4 @@ const AddCourse = props => {
     );
 }
 
-export default AddCourse;
+export default EditCourse;
