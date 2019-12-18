@@ -1,4 +1,4 @@
-import { get, post } from './axios';
+import { del, get, post } from './axios';
 
 const API_COURSE_URL = '/courses';
 const getApiCourseUrlWithId = id => `${API_COURSE_URL}/${id}`;
@@ -14,4 +14,9 @@ export const fetchCourses = () => {
 export const fetchCourseById = id => {
   const url = getApiCourseUrlWithId(id);
   return get(url)
+};
+
+export const deleteCourseById = id => {
+  const url = getApiCourseUrlWithId(id);
+  return del(url);
 };

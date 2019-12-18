@@ -1,11 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { withRouter } from "react-router";
 
+import { deleteStudentById } from "../../../../utils/api/student";
+import { deleteTutorById } from "../../../../utils/api/tutor";
 import TutorStudentRow from "./TutorStudentRow";
 
 import "../styles/listModel.scss";
 
 function StudentTutorForm(props) {
+  const [deleteName, setDeleteName] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
   const { users, shouldSearch } = props;
+
+
+  useEffect(() => {
+    if(isDeleting) {
+      if (window.confirm("Are you sure?")) {
+        if (props.searchName === "Student"){
+          deleteStudentById(deleteName).then(() => {
+            window.location.reload()});
+        }else if (props.searchName === "Tutor"){
+          deleteTutorById(deleteName).then(() => {
+            window.location.reload()});
+        }
+      }
+    }
+  },)
+
   return (
     <section className="course-list">
       <div className="row course-form-title">
@@ -21,8 +43,12 @@ function StudentTutorForm(props) {
           <TutorStudentRow
             key={user.email}
             name={user.firstName + user.lastName}
+            id={user._id}
             email={user.email}
             phone={user.mobile}
+            setDeleteName={setDeleteName}
+            isDeleting={isDeleting}
+            setIsDeleting={setIsDeleting}
           />
         ))
       ) : (
@@ -30,11 +56,15 @@ function StudentTutorForm(props) {
           key={users.email}
           name={users.firstName + users.lastName}
           email={users.email}
+          id={users._id}
           phone={users.mobile}
+          setDeleteName={setDeleteName}
+          isDeleting={isDeleting}
+          setIsDeleting={setIsDeleting}
         />
       )}
     </section>
   );
 }
 
-export default StudentTutorForm;
+export default withRouter(StudentTutorForm);
