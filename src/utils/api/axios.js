@@ -16,7 +16,7 @@ export const post = (url, data, config = {}) =>
     axios.post(url, data, appendAuthToken(config));
 
 export const put = (url, data, config = {}) =>
-    axios.put(url, data, appendAuthToken);
+    axios.put(url, data, appendAuthToken(config));
 
 export const del = (url, config = {}) =>
     axios.delete(url, appendAuthToken(config));
