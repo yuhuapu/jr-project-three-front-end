@@ -6,11 +6,11 @@ import greetingLogo from "../../resource/img/greeting.png";
 import "../../UI/styles/navigationStyle.scss";
 import "./styles/adminNav.scss";
 import { deleteToken } from '../../utils/authentication';
-import { LOGIN_URL } from '../../routes/URLMap';
+import { HOME_PAGE_URL } from '../../routes/URLMap';
 
 const logout = history => {
     deleteToken();
-    history.push(LOGIN_URL);
+    history.push(HOME_PAGE_URL);
 }
 
 const AdminNav = ({history}) => {
