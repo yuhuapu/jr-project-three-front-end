@@ -22,12 +22,10 @@ const Navigation = props => {
       </Link>
       <ul className="nav nav-pills">
         <li className="nav-item">
-          
             <button className="nav-button" onClick={showLoginDialog}>
               <img src={loginIcon} className="form-icon" alt="loginIcon" />
               <span>Login</span>
             </button>
-          
         </li>
 
         <li className="nav-item">

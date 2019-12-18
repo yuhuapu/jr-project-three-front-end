@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Homepage from '../UI/Homepage';
-import Login from '../login/Login';
 
 import AdminLogin from '../login/AdminLogin';
 import Admin from "../admin/Admin";
@@ -20,6 +19,10 @@ import AdminStudentSearch from "../admin/adminUI/searchModal/components/AdminStu
 import AdminTutorSearch from "../admin/adminUI/searchModal/components/AdminTutorSearch";
 
 import AdminProtectedRoute from './components/AdminProtectedRoute';
+import ProtectedRoute from './components/ProtectedRoute';
+
+import Student from '../student/Student';
+import Tutor from '../tutor/Tutor';
 
 const Routes = () => {
     return (
@@ -37,9 +40,9 @@ const Routes = () => {
                 <AdminProtectedRoute exact path="/admin/dashboard/studentsearch" component={AdminStudentSearch} />
                 <AdminProtectedRoute exact path="/admin/dashboard/tutorsearch" component={AdminTutorSearch} />
 
-
                 <Route exact path="/" component={Homepage} />
-                <Route exact path="/students" component={Homepage} />
+                <ProtectedRoute exact path="/student" component={Student} />
+                <ProtectedRoute exact path="/tutor" component={Tutor} />
             </Switch>
         </Router>
     );

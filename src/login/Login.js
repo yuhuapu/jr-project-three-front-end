@@ -3,7 +3,8 @@ import "./styles/login.scss";
 import loginIcon from "../resource/img/login-icon.png";
 import { login } from "../utils/api/auth";
 import { setToken } from "../utils/authentication";
-import { HOME_PAGE_URL } from "../routes/URLMap";
+import { STUDENT_DASHBOARD_URL } from "../routes/URLMap";
+import { TUTOR_DASHBOARD_URL } from '../routes/URLMap';
 
 const Login = props => {
   const [loginStates, setLoginStates] = useState({
@@ -11,10 +12,9 @@ const Login = props => {
     password: "",
     loginOption: "",
     isLoading: false,
-    isErrShowing: false,
-    ...props
+    isErrShowing: false
   });
-  
+
   const handleChange = event => {
     const key = event.target.name;
     const value = event.target.value;
@@ -53,21 +53,23 @@ const Login = props => {
 
   useEffect(() => {
     if (loginStates.isLoading) {
-      console.log('isLoading is true');
       login(loginStates.email, loginStates.password)
         .then(token => {
           setToken(token);
+
+          const DEFAULT_URL = loginStates.loginOption === "Student"? STUDENT_DASHBOARD_URL : TUTOR_DASHBOARD_URL;
+
           setLoginStates({
             ...loginStates,
             loginOption: "",
             isLoading: false,
-            isErrShowing: false,
+            isErrShowing: false
           });
           props.setShouldLoginDisplay(false);
-          console.log('success');
-          const locationState = loginStates.location.state;
-          const redirectTo = (locationState && locationState.from) || HOME_PAGE_URL;
-          console.log(props.history);
+
+          const locationState = props.location.state; 
+          const redirectTo = (locationState && locationState.from) || DEFAULT_URL;
+          
           props.history.replace(redirectTo);
         })
         .catch(() => {
@@ -75,10 +77,9 @@ const Login = props => {
             ...loginStates,
             loginOption: "",
             isLoading: false,
-            isErrShowing: true,
+            isErrShowing: true
           });
-          console.log('fail');}
-        );
+        });
     }
   }, [loginStates, props]);
 

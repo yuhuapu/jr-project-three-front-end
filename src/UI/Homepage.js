@@ -10,7 +10,7 @@ import "../login/styles/login.scss";
 
 const Homepage = props => {
   const [shouldLoginDisplay, setShouldLoginDisplay] = useState(false);
-console.log(props.history);
+
   return (
     <div>
       <div className="row">
@@ -26,6 +26,7 @@ console.log(props.history);
       </div>
       <Login
         history={props.history}
+        location={props.location}
         shouldLoginDisplay={shouldLoginDisplay}
         setShouldLoginDisplay={setShouldLoginDisplay}
       />
