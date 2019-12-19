@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { fetchStudents } from "../../../../utils/api/student";
 
-import Navigation from "../../../../UI/Navigation";
+import AdminNav from "../../AdminNav";
 import DashMenu from "../../DashMenu";
 import StudentTutorForm from "../../listModal/components/StudentTutorForm";
 import PageNumber from "../../listModal/components/PageNumber";
@@ -27,7 +27,7 @@ const AdminStudentSearch = () => {
     <div className="row">
       <div className="col-md-2" />
       <div className="col-md-8">
-        <Navigation />
+        <AdminNav />
         <DashMenu
           menuText={ButtonText.studentText}
           styleText={ButtonText.styleText[1]}

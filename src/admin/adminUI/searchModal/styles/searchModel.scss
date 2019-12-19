@@ -21,4 +21,8 @@
 .search-icon {
     padding:0px 10px 0px 10px;
     width:50px;
+
+    &:hover {
+        cursor: pointer
+    }
 }

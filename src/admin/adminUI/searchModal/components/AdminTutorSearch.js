@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { fetchTutors } from "../../../../utils/api/tutor";
 
 
-import Navigation from "../../../../UI/Navigation";
+import AdminNav from "../../AdminNav";
 import DashMenu from "../../DashMenu";
 import StudentTutorForm from "../../listModal/components/StudentTutorForm";
 import PageNumber from "../../listModal/components/PageNumber";
@@ -28,7 +28,7 @@ const AdminTutorSearch = () => {
     <div className="row">
       <div className="col-md-2" />
       <div className="col-md-8">
-        <Navigation />
+        <AdminNav />
         <DashMenu
           menuText={ButtonText.tutorText}
           styleText={ButtonText.styleText[1]}
@@ -45,7 +45,6 @@ const AdminTutorSearch = () => {
         />
         <StudentTutorForm
           users={users}
-          shouldSearch={shouldSearch}
           searchName={searchName}
         />
         <PageNumber />
