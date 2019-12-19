@@ -1,6 +1,7 @@
 import { del, get, post } from './axios';
 
 const API_TUTOR_URL = '/tutors';
+const getApiTutorsUrlWithName = name => `${API_TUTOR_URL}/${name}`;
 const getApiTutorUrlWithId = id => `${API_TUTOR_URL}/${id}`;
 
 export const createTutor = tutor => {
@@ -11,9 +12,10 @@ export const fetchTutors = () => {
   return get(API_TUTOR_URL);
 };
 
-export const fetchTutorById = id => {
-  const url = getApiTutorUrlWithId(id);
-  return get(url)
+export const fetchTutorsByName = name => {
+  const url = getApiTutorsUrlWithName(name);
+  console.log('fetch tutors by name');
+  return get(url);
 };
 
 export const deleteTutorById = id => {

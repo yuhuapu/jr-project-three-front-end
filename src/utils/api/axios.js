@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { getToken } from '../authentication';
 
-axios.defaults.baseURL = 'https://jr-project-three-back-end.herokuapp.com/api/v1/';
+axios.defaults.baseURL = 'https://jr-project-three-back-end.herokuapp.com/api/v1';
 
 const appendAuthToken = config => {
     const jwtToken = getToken();
@@ -16,7 +16,7 @@ export const post = (url, data, config = {}) =>
     axios.post(url, data, appendAuthToken(config));
 
 export const put = (url, data, config = {}) =>
-    axios.put(url, data, appendAuthToken);
+    axios.put(url, data, appendAuthToken(config));
 
 export const del = (url, config = {}) =>
     axios.delete(url, appendAuthToken(config));

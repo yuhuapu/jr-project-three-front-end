@@ -11,7 +11,7 @@ function StudentTutorForm(props) {
   const [deleteName, setDeleteName] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
 
-  const { users, shouldSearch } = props;
+  const { users } = props;
 
 
   useEffect(() => {
@@ -38,11 +38,11 @@ function StudentTutorForm(props) {
         <span className="col-md-2 course-title-tutor">Phone</span>
       </div>
       <hr className="line-top" />
-      {!shouldSearch ? (
+      {
         users.map(user => (
           <TutorStudentRow
             key={user.email}
-            name={user.firstName + user.lastName}
+            name={user.firstName + " " +user.lastName}
             id={user._id}
             email={user.email}
             phone={user.mobile}
@@ -51,18 +51,7 @@ function StudentTutorForm(props) {
             setIsDeleting={setIsDeleting}
           />
         ))
-      ) : (
-        <TutorStudentRow
-          key={users.email}
-          name={users.firstName + users.lastName}
-          email={users.email}
-          id={users._id}
-          phone={users.mobile}
-          setDeleteName={setDeleteName}
-          isDeleting={isDeleting}
-          setIsDeleting={setIsDeleting}
-        />
-      )}
+       }
     </section>
   );
 }

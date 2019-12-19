@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { fetchTutors } from "../../../../utils/api/tutor";
 
-import Navigation from "../../../../UI/Navigation";
+import AdminNav from '../../AdminNav';
 import Footer from "../../../../UI/Footer";
 import StudentTutorForm from "./StudentTutorForm";
 import DashMenu from "../../DashMenu";
@@ -24,7 +24,7 @@ const AdminTutorList = () => {
     <div className="row">
       <div className="col-md-2" />
       <div className="col-md-8">
-        <Navigation />
+        <AdminNav />
         <DashMenu
           menuText={ButtonText.tutorText}
           styleText={ButtonText.styleText[1]}

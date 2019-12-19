@@ -9,6 +9,10 @@ export const getToken = () => {
     return localStorage.getItem(JWT_KEY);
 }
 
+export const deleteToken = () => {
+    return localStorage.removeItem(JWT_KEY);
+}
+
 export const isAuthenticated = () => {
     const token = getToken();
 

@@ -1,7 +1,7 @@
 import React from "react";
 
-import { fetchTutorById } from "../../../../utils/api/tutor";
-import { fetchStudentById } from "../../../../utils/api/student";
+import { fetchTutorsByName } from "../../../../utils/api/tutor";
+import { fetchStudentsByName } from "../../../../utils/api/student";
 import { fetchCourseById } from "../../../../utils/api/course";
 
 import "../styles/searchModel.scss";
@@ -9,7 +9,6 @@ import Search from "../../../../resource/img/search.svg";
 
 function SearchBar(props) {
   const { input,searchName } = props;
-  const { setUsers,setCourses,setInput,setShouldSearch } = props;
 
   return (
     <form className="search-container">
@@ -20,24 +19,25 @@ function SearchBar(props) {
           type="text"
           className="col-11 search-bar"
           value={input}
-          onChange={event => setInput(event.target.value)}
+          onChange={event => props.setInput(event.target.value)}
         />
         <div
           onClick={() => {
             if (searchName === "Student") {
-              fetchStudentById(`${input}`).then(res =>
-                setUsers(res.data)
+              fetchStudentsByName(`${input}`).then(res =>
+                props.setUsers(res.data)
               );
             } else if (searchName === "Tutor") {
-              fetchTutorById(`${input}`).then(res =>
-                setUsers(res.data)
+              fetchTutorsByName(`${input}`).then(res =>{
+                props.setUsers(res.data);
+              }
               );
             } else if (searchName === "Course") {
               fetchCourseById(`${input}`).then(res =>
-                setCourses(res.data)
+                props.setCourses(res.data)
               );
             }
-            setShouldSearch(true);
+            props.setShouldSearch(true);
 
           }}
         >
