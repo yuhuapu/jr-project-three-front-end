@@ -5,7 +5,7 @@ import TutorStudentRow from "./TutorStudentRow";
 import "../styles/listModel.scss";
 
 function StudentTutorForm(props) {
-  const { users, shouldSearch } = props;
+  const { users } = props;
   return (
     <section className="course-list">
       <div className="row course-form-title">
@@ -16,7 +16,7 @@ function StudentTutorForm(props) {
         <span className="col-md-2 course-title-tutor">Phone</span>
       </div>
       <hr className="line-top" />
-      {!shouldSearch ? (
+      {
         users.map(user => (
           <TutorStudentRow
             key={user.email}
@@ -25,14 +25,7 @@ function StudentTutorForm(props) {
             phone={user.mobile}
           />
         ))
-      ) : (
-        <TutorStudentRow
-          key={users.email}
-          name={users.firstName + users.lastName}
-          email={users.email}
-          phone={users.mobile}
-        />
-      )}
+       }
     </section>
   );
 }
