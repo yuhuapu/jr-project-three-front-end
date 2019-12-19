@@ -1,8 +1,15 @@
-import React from "react";
+import React from 'react';
+
 
 import "../styles/listModel.scss";
 
-function CourseRow(props) {
+function CourseRow (props) {
+
+const handleClick = (event) => {
+    props.setDeleteName(event.target.value);
+    props.setIsDeleting(true);
+}
+
   return (
     <div className="course-list-row">
       <div className="row">
@@ -23,7 +30,8 @@ function CourseRow(props) {
       </button>
         </span>
         <span className="col-md-1">
-          <button className="edit-button">Delete</button>
+        <button className="delete col-md-1" value= {props.code} loading={props.isDeleting}
+          onClick={handleClick}>Delete</button>
         </span>
       </div>
     </div>

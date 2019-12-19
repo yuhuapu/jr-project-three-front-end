@@ -23,6 +23,8 @@ const AdminCourseSearch = () => {
       setSearchName("Course");
     }, []);
 
+ 
+
   return (
     <div className="row main-container">
       <div className="col-md-2" />

@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { withRouter } from "react-router";
 
+import { deleteCourseById } from "../../../../utils/api/course";
 import CourseRow from "./CourseRow";
 
 import "../styles/listModel.scss";
 
-function CourseForm(props) {
+const CourseForm = props => {
+  const [deleteName, setDeleteName] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
   const { courses } = props;
+
+  useEffect(() => {
+    if (isDeleting) {
+      if (window.confirm("Are  you sure?")) {
+        deleteCourseById(deleteName).then(() => {
+          window.location.reload();
+        })
+      }}
+  },[isDeleting,deleteName]);
+
   return (
     <section className="course-list">
       <div className="row course-form-title">
@@ -23,12 +38,18 @@ function CourseForm(props) {
             key={course._id}
             code={course._id}
             name={course.courseName}
-            date={course.coursePeriod}
+            code={course.code}
+            deleteName={course._id}
+            startDate={course.startDate.slice(0,10)}
+            endDate={course.endDate.slice(0,10)}
             tutor={course.tutorId.length}
             student={course.studentId.length}
             setShouldDisplay={props.setShouldDisplay}
             setAddFormType={props.setAddFormType}
             setCourseToUpdate={props.setCourseToUpdate}
+            setDeleteName={setDeleteName}
+            isDeleting={isDeleting}
+            setIsDeleting={setIsDeleting}
           />
         ))
       ) : (
@@ -42,10 +63,14 @@ function CourseForm(props) {
           setShouldDisplay={props.setShouldDisplay}
           setAddFormType={props.setAddFormType}
           setCourseToUpdate={props.setCourseToUpdate}
+          deleteName={courses._id}
+          setDeleteName={setDeleteName}
+          isDeleting={isDeleting}
+          setIsDeleting={setIsDeleting}
         />
       )}
     </section>
   );
-}
+};
 
-export default CourseForm;
+export default withRouter(CourseForm);

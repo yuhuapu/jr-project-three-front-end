@@ -24,7 +24,11 @@ function TutorStudentRow(props) {
         }}>
         Edit
       </button>
-      <button className="delete col-md-1">Delete</button>
+      <button className="delete col-md-1" value= {props.id} loading={props.isDeleting}
+          onClick={(event) => {
+            props.setDeleteName(event.target.value);
+            props.setIsDeleting(true);
+        }}>Delete</button>
     </div>
   );
 }
