@@ -7,6 +7,8 @@ import AddTutorList from './AddTutorList';
 import AddStudentList from './AddStudentList';
 import AddCourseList from './AddCourseList';
 import EditCourse from '../editModal/EditCourse';
+import EditStudent from '../editModal/EditStudent';
+import EditTutor from '../editModal/EditTutor';
 
 const SwitchAddForm = props => {
     const shouldDisplay = props.shouldDisplay;
@@ -36,8 +38,8 @@ const SwitchAddForm = props => {
             return <AddTutorList
                 onCloseButtonClick={props.onCloseButtonClick}
                 handleTutorIDs={props.handleTutorIDs}
-                tutorNames={props.tutorNames}
-                setTutorNames={props.setTutorNames}
+                addedTutors={props.addedTutors}
+                setAddedTutors={props.setAddedTutors}
                 setTutorNumber={props.setTutorNumber}
             />;
 
@@ -45,23 +47,36 @@ const SwitchAddForm = props => {
             return <AddStudentList
                 onCloseButtonClick={props.onCloseButtonClick}
                 handleStudentIDs={props.handleStudentIDs}
-                studentNames={props.studentNames}
-                setStudentNames={props.setStudentNames}
+                addedStudents={props.addedStudents}
+                setAddedStudents={props.setAddedStudents}
                 setStudentNumber={props.setStudentNumber}
             />
 
         case "Course List":
-            return <AddCourseList 
-            onCloseButtonClick={props.onCloseButtonClick}
-            handleCourseIDs={props.handleCourseIDs}
-            courseNames={props.courseNames}
-            setCourseNames={props.setCourseNames}
-            setCourseNumber={props.setCourseNumber}
+            return <AddCourseList
+                onCloseButtonClick={props.onCloseButtonClick}
+                handleCourseIDs={props.handleCourseIDs}
+                addedCourses={props.addedCourses}
+                setAddedCourses={props.setAddedCourses}
+                setCourseNumber={props.setCourseNumber}
             />
 
         case "Edit Course":
-            return <EditCourse 
-            onCloseButtonClick={props.onCloseButtonClick}
+            return <EditCourse
+                onCloseButtonClick={props.onCloseButtonClick}
+                courseToUpdate={props.courseToUpdate}
+            />
+
+        case "Edit Student":
+            return <EditStudent
+                onCloseButtonClick={props.onCloseButtonClick}
+                studentToUpdate={props.studentToUpdate}
+            />
+
+        case "Edit Tutor":
+            return <EditTutor
+                onCloseButtonClick={props.onCloseButtonClick}
+                tutorToUpdate={props.tutorToUpdate}
             />
         default:
             break;

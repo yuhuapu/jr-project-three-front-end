@@ -1,28 +1,18 @@
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
 import { updateCourse } from '../../../utils/api/course';
+import { fetchCourseById } from '../../../utils/api/course';
 import '../addModal/styles/addModal.scss';
 import SwitchAddForm from '../addModal/SwitchAddForm';
 
 const EditCourse = props => {
-    const adminRestProps = props.adminRestProps;
     const [shouldDisplay, setShouldDisplay] = useState(false);
     const [addFormType, setAddFormType] = useState('');
-    const [courseStates, setCourseStates] = useState({
-        code: '',
-        courseName: '',
-        startDate: '',
-        endDate: '',
-        description: '',
-        studentIDs: [],
-        tutorIDs: [],
-    });
+    const [courseStates, setCourseStates] = useState({});
 
-    const [tutorNames, setTutorNames] = useState([]);
-    const [studentNames, setStudentNames] = useState([]);
-
-    const [tutorNumber, setTutorNumber] = useState(0);
-    const [studentNumber, setStudentNumber] = useState(0);
+    // Fetech course info based on its id
+    useEffect(()=>{
+        fetchCourseById(props.courseToUpdate).then(res => setCourseStates(res.data));
+    }, [props.courseToUpdate]);
 
     const handleCourseInput = event => {
         const key = event.target.name;
@@ -40,27 +30,13 @@ const EditCourse = props => {
 
     const handleUpdate = event => {
         event.preventDefault();
-        const course = {...courseStates};
-        updateCourse(course).then(() => {
-            adminRestProps.history.push('/admin/dashboard/courselist');
+        const course = courseStates.code;
+        updateCourse(course, courseStates).then(() => {
+            window.location.reload();
         });
     };
 
-    const TutorName = () => {
-        if (tutorNumber > 0) {
-            return (tutorNames.map((name, i) => <button key={i} className="edit-button">{name}</button>));
-        } else {
-            return null;
-        }
-    };
-
-    const StudentName = () => {
-        if (studentNumber > 0) {
-            return (studentNames.map((name, i) => <button key={i} className="edit-button">{name}</button>));
-        } else {
-            return null;
-        }
-    };
+    
 
     return (
         <div className="add-modal">
@@ -72,11 +48,23 @@ const EditCourse = props => {
                     </div>
 
                     <div className="col-md-6">
-                        <input name="courseName" type="text" className="course-name" onChange={handleCourseInput} />
+                        <input 
+                        name="courseName" 
+                        type="text" 
+                        className="course-name" 
+                        onChange={handleCourseInput} 
+                        value={courseStates.courseName} 
+                        />
                     </div>
 
                     <div className="col-md-3">
-                        <input name="code" type="text" className="course-code" placeholder="Couese Code" onChange={handleCourseInput} />
+                        <input 
+                        name="code" 
+                        type="text" 
+                        className="course-code" 
+                        value={courseStates.code}
+                        disabled={true}
+                        />
                     </div>
                 </div>
 
@@ -87,13 +75,26 @@ const EditCourse = props => {
                     </div>
                     <div className="col-md-4">
                         <input 
-                        name="startDate" type="text" placeholder="Day/Month/Year" className="course-period" onFocus={(e) => e.target.type = 'date'} onChange={handleCourseInput} />
+                        name="startDate" 
+                        type="text" 
+                        value={courseStates.startDate} 
+                        className="course-period" 
+                        onFocus={(e) => e.target.type = 'date'} 
+                        onChange={handleCourseInput} 
+                        />
                     </div>
                     <div className="col-md-1">
                         <span> - </span>
                     </div>
                     <div className="col-md-4">
-                        <input name="endDate" type="text" placeholder="Day/Month/Year" className="course-period" onFocus={(e) => e.target.type = 'date'} onChange={handleCourseInput} />
+                        <input 
+                        name="endDate" 
+                        type="text" 
+                        value={courseStates.endDate}
+                        className="course-period" 
+                        onFocus={(e) => e.target.type = 'date'} 
+                        onChange={handleCourseInput} 
+                        />
                     </div>
                 </div>
 
@@ -105,7 +106,12 @@ const EditCourse = props => {
 
                 <div className="row">
                     <div className="col-md-12">
-                        <textarea name="description" className="description-box" onChange={handleCourseInput}/>
+                        <textarea 
+                        name="description" 
+                        className="description-box" 
+                        onChange={handleCourseInput}
+                        value={courseStates.description}
+                        />
                     </div>
                 </div>
 
@@ -117,12 +123,8 @@ const EditCourse = props => {
                     </div>
                     <div className="col-md-7" />
                     <div className="col-md-2">
-                        <p>Total: {tutorNumber} </p>
+                        <p>Total:  </p>
                     </div>
-                </div>
-
-                <div className="row">
-                    <TutorName />
                 </div>
                 
                 <div className="row">
@@ -137,7 +139,6 @@ const EditCourse = props => {
                             }}>
                         Add
                         </button>
-                        <button className="edit-button">Edit</button>
                         <button className="edit-button">Delete</button>
                     </div>
                 </div>
@@ -150,12 +151,10 @@ const EditCourse = props => {
                     </div>
                     <div className="col-md-7" />
                     <div className="col-md-2">
-                        <p>Total: {studentNumber} </p>
+                        <p>Total: </p>
                     </div>
                 </div>
-                <div className="row">
-                    <StudentName />
-                </div>
+
                 <div className="row">
                     <div className="col-md-8" />
                     <div className="col-md-4">
@@ -168,7 +167,6 @@ const EditCourse = props => {
                             }}>
                         Add
                         </button>
-                        <button className="edit-button">Edit</button>
                         <button className="edit-button">Delete</button>
                     </div>
                 </div>
@@ -203,12 +201,7 @@ const EditCourse = props => {
                 addFormType={addFormType}
                 handleTutorIDs={handleTutorIDs}
                 handleStudentIDs={handleStudentIDs}
-                tutorNames={tutorNames}
-                setTutorNames={setTutorNames}
-                studentNames={studentNames}
-                setStudentNames={setStudentNames}
-                setTutorNumber={setTutorNumber}
-                setStudentNumber={setStudentNumber}
+
             />
         </div>
     );

@@ -16,7 +16,7 @@ export const fetchCourseById = id => {
   return get(url);
 };
 
-export const updateCourse = id => {
+export const updateCourse = (id, course) => {
   const url = getApiCourseUrlWithId(id);
-  return put(url);
+  return put(url, course);
 };

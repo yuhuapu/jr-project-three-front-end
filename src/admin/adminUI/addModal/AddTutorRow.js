@@ -5,8 +5,8 @@ const AddTutorRow = props => {
     const id = props.id;
     const tutorIdList = props.tutorIdList;
     const setTutorIdList = props.setTutorIdList;
-    const tutorNames = props.tutorNames;
-    const setTutorNames = props.setTutorNames;
+    const addedTutors = props.addedTutors;
+    const setAddedTutors = props.setAddedTutors;
     const [buttonClass, setButtonClass] = useState("edit-button")
     const [isButtonClicked, setButtonClicked] = useState(false); 
 
@@ -22,7 +22,7 @@ const AddTutorRow = props => {
             onClick = {(e)=>{
                 e.preventDefault();
                 setTutorIdList(tutorIdList.concat(id));
-                setTutorNames(tutorNames.concat(props.name));
+                setAddedTutors(addedTutors.concat({name: props.name, tutorID: id}));
                 setButtonClass("button-clicked");
                 setButtonClicked(true);
             }}

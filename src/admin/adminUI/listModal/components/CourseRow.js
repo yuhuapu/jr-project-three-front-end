@@ -7,7 +7,7 @@ function CourseRow(props) {
     <div className="course-list-row">
       <div className="row">
         <span className="col-md-3 course-list-name">{props.name}</span>
-        <span className="col-md-5 course-list-date">{props.date}</span>
+        <span className="col-md-5 course-list-date">{props.startDate} - {props.endDate}</span>
         <span className="col-md-1 course-list-tutor">{props.tutor}</span>
         <span className="col-md-1 course-list-student">{props.student}</span>
         <span className="col-md-1">
@@ -17,6 +17,7 @@ function CourseRow(props) {
               e.preventDefault();
               props.setAddFormType('Edit Course');
               props.setShouldDisplay(true);
+              props.setCourseToUpdate(props.code)
             }}>
             Edit
       </button>

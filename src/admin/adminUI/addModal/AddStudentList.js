@@ -31,8 +31,8 @@ const AddStudentList = props => {
                             id={user._id}
                             studentIdList={studentIdList}
                             setstudentIdList={setstudentIdList}
-                            studentNames={props.studentNames}
-                            setStudentNames={props.setStudentNames}
+                            addedStudents={props.addedStudents}
+                            setAddedStudents={props.setAddedStudents}
                         />
                     ))}
                 </section>

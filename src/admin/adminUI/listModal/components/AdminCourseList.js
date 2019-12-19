@@ -14,6 +14,7 @@ const AdminCourseList = props => {
     const [addFormType, setAddFormType] = useState("");
     const [courses, setCourses] = useState([]);
     const [searchName, setSearchName] = useState("");
+    const [courseToUpdate, setCourseToUpdate]=useState();
 
     useEffect(() => {
         fetchCourses().then(res => setCourses(res.data));
@@ -36,6 +37,7 @@ const AdminCourseList = props => {
                     searchName={searchName}
                     setShouldDisplay={setShouldDisplay}
                     setAddFormType={setAddFormType}
+                    setCourseToUpdate={setCourseToUpdate}
                 />
                 <PageNumber />
                 <Footer />
@@ -44,6 +46,7 @@ const AdminCourseList = props => {
                 shouldDisplay={shouldDisplay}
                 onCloseButtonClick={setShouldDisplay}
                 addFormType={addFormType}
+                courseToUpdate={courseToUpdate}
             />
         </div>
     );

@@ -14,6 +14,7 @@ const AdminStudentList = () => {
   const [addFormType, setAddFormType] = useState("");
   const [users, setUsers] = useState([]);
   const [searchName, setSearchName] = useState("");
+  const [studentToUpdate, setStudentToUpdate]=useState();
 
   useEffect(() => {
     fetchStudents().then(res => setUsers(res.data));
@@ -33,7 +34,10 @@ const AdminStudentList = () => {
         />
         <StudentTutorForm 
             users={users} 
-            searchName={searchName} 
+            searchName={searchName}
+            setShouldDisplay={setShouldDisplay}
+            setAddFormType={setAddFormType}
+            setStudentToUpdate={setStudentToUpdate} 
         />
         <PageNumber />
         <Footer />
@@ -43,6 +47,7 @@ const AdminStudentList = () => {
         shouldDisplay={shouldDisplay}
         onCloseButtonClick={setShouldDisplay}
         addFormType={addFormType}
+        studentToUpdate={studentToUpdate}
       />
     </div>
   );

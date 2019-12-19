@@ -1,44 +1,16 @@
-import React, { useState } from 'react';
-import { createStudent } from '../../../utils/api/student';
-import './styles/addModal.scss';
-import SwitchAddForm from './SwitchAddForm';
-import AddFormsButton from './addFormsButton';
+import React, { useState, useEffect } from 'react';
+import { updateStudent, fetchStudentById } from '../../../utils/api/student';
+import '../addModal/styles/addModal.scss';
+import SwitchAddForm from '../addModal/SwitchAddForm';
 
-const AddStudent = props => {
-    const adminRestProps = props.adminRestProps;
+const EditStudent = props => {
     const [shouldDisplay, setShouldDisplay] = useState(false);
     const [addFormType, setAddFormType] = useState('');
-    const [studentStates, setStudentStates] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        dateOfBirth: '',
-        gender: '',
-        mobile: '',
-        note: '',
-        courses: [],
-    });
+    const [studentStates, setStudentStates] = useState({});
 
-    const [addedCourses, setAddedCourses] = useState([]);
-    const [coursesToDelete, setCourseToDelete] = useState([]);
-    const [courseNumber, setCourseNumber] = useState(0);
-
-    const deleteAddedCourse = idsToDelete => {
-        let existedCourseIDs = new Set(studentStates.courseIDs);
-        let courseIDsToDelete = new Set(idsToDelete);
-        let newCourseIDs = new Set([...existedCourseIDs].filter(x => !courseIDsToDelete.has(x)));
-        setCourseNumber(newCourseIDs.size);
-
-        let newStateCourseIDs = Array.from(newCourseIDs);
-        setStudentStates({ ...studentStates, courses: newStateCourseIDs });
-
-        newStateCourseIDs.forEach(newCourseId => {
-            const updatedAddedCourses = addedCourses.filter(x => x.studentID === newCourseId);
-            setAddedCourses(updatedAddedCourses);
-        });
-
-        setCourseToDelete([]);
-    };
+    useEffect(()=>{
+        fetchStudentById(props.studentToUpdate).then(res => setStudentStates(res.data));
+    }, [props.studentToUpdate]);
 
     const handleStudentInput = event => {
         const key = event.target.name;
@@ -50,30 +22,12 @@ const AddStudent = props => {
         setStudentStates({ ...studentStates, courses: courseIDs });
     };
 
-    const handleCreate = event => {
+    const handleUpdate = event => {
         event.preventDefault();
-        const student = { ...studentStates };
-        createStudent(student).then(() => {
-            adminRestProps.history.push('/admin/dashboard/studentlist');
+        const student = studentStates._id;
+        updateStudent(student, studentStates).then(() => {
+            window.location.reload();
         });
-    };
-
-    const AddedCourses = () => {
-        if (courseNumber > 0) {
-            return (addedCourses.map(addedCourse => (
-                <AddFormsButton
-                    key={addedCourse.courseID}
-                    setToDelete={setCourseToDelete}
-                    deleteTargetArray={coursesToDelete}
-                    addedID={addedCourse.courseID}
-                >
-                    {addedCourse.name}
-                </AddFormsButton>
-            )
-            ));
-        } else {
-            return null;
-        }
     };
 
     return (
@@ -84,12 +38,24 @@ const AddStudent = props => {
                 <div className="row">
                     <div className="col-md-6">
                         <p>First Name</p>
-                        <input name="firstName" type="text" className="input-boxs" onChange={handleStudentInput} />
+                        <input 
+                        name="firstName" 
+                        type="text" 
+                        className="input-boxs" 
+                        onChange={handleStudentInput} 
+                        value={studentStates.firstName}
+                        />
                     </div>
 
                     <div className="col-md-6">
                         <p>Last Name</p>
-                        <input name="lastName" type="text" className="input-boxs" onChange={handleStudentInput} />
+                        <input 
+                        name="lastName" 
+                        type="text" 
+                        className="input-boxs" 
+                        onChange={handleStudentInput} 
+                        value={studentStates.lastName}
+                        />
                     </div>
                 </div>
 
@@ -121,7 +87,15 @@ const AddStudent = props => {
 
                     <div className="col-md-6">
                         <p>DOB</p>
-                        <input name="dateOfBirth" type="text" placeholder="Day/Month/Year" className="input-boxs" onFocus={(e) => e.target.type = 'date'} onChange={handleStudentInput} />
+                        <input 
+                        name="dateOfBirth" 
+                        type="text" 
+                        placeholder="Day/Month/Year" 
+                        className="input-boxs" 
+                        onFocus={(e) => e.target.type = 'date'} 
+                        onChange={handleStudentInput} 
+                        value={studentStates.dateOfBirth}
+                        />
                     </div>
                 </div>
 
@@ -130,12 +104,25 @@ const AddStudent = props => {
                 <div className="row">
                     <div className="col-md-6">
                         <p>Mobile</p>
-                        <input name="mobile" type="text" className="input-boxs" onChange={handleStudentInput} />
+                        <input 
+                        name="mobile" 
+                        type="text" 
+                        className="input-boxs" 
+                        onChange={handleStudentInput} 
+                        value={studentStates.mobile}
+                        />
                     </div>
 
                     <div className="col-md-6">
                         <p>Email</p>
-                        <input name="email" type="text" className="input-boxs" onChange={handleStudentInput} />
+                        <input 
+                        name="email" 
+                        type="text" 
+                        className="input-boxs" 
+                        onChange={handleStudentInput} 
+                        disabled={true}
+                        value={studentStates.email}
+                        />
                     </div>
                 </div>
 
@@ -149,7 +136,12 @@ const AddStudent = props => {
 
                 <div className="row">
                     <div className="col-md-12">
-                        <textarea name="note" className="description-box" onChange={handleStudentInput} />
+                        <textarea 
+                        name="note" 
+                        className="description-box" 
+                        onChange={handleStudentInput} 
+                        value={studentStates.note}
+                        />
                     </div>
                 </div>
 
@@ -161,12 +153,8 @@ const AddStudent = props => {
                     </div>
                     <div className="col-md-7" />
                     <div className="col-md-2">
-                        <p>Total: {courseNumber} </p>
+                        <p>Total: </p>
                     </div>
-                </div>
-
-                <div className="row">
-                    <AddedCourses />
                 </div>
 
                 <div className="row">
@@ -186,7 +174,6 @@ const AddStudent = props => {
                             className="edit-button"
                             onClick={(e) => {
                                 e.preventDefault();
-                                deleteAddedCourse(coursesToDelete);
                             }}>
                             Delete
                     </button>
@@ -198,7 +185,7 @@ const AddStudent = props => {
                 <div className="row">
                     <div className="col-md">
                         <div className="submit-button-container">
-                            <button onClick={handleCreate} className="submit-button" >Add</button>
+                        <button onClick={handleUpdate} className="submit-button" >Update</button>
                             <button onClick={(e) => { e.preventDefault(); props.onCloseButtonClick(false) }} className="submit-button">Cancel</button>
                         </div>
                     </div>
@@ -209,12 +196,9 @@ const AddStudent = props => {
                 onCloseButtonClick={setShouldDisplay}
                 addFormType={addFormType}
                 handleCourseIDs={handleCourseIDs}
-                addedCourses={addedCourses}
-                setAddedCourses={setAddedCourses}
-                setCourseNumber={setCourseNumber}
             />
         </div>
     );
 }
 
-export default AddStudent;
+export default EditStudent;

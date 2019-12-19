@@ -21,23 +21,27 @@ function CourseForm(props) {
         courses.map(course => (
           <CourseRow
             key={course._id}
+            code={course._id}
             name={course.courseName}
             date={course.coursePeriod}
             tutor={course.tutorId.length}
             student={course.studentId.length}
             setShouldDisplay={props.setShouldDisplay}
             setAddFormType={props.setAddFormType}
+            setCourseToUpdate={props.setCourseToUpdate}
           />
         ))
       ) : (
         <CourseRow
           key={courses._id}
+          code={courses._id}
           name={courses.courseName}
           date={courses.coursePeriod}
           tutor={courses.tutorId}
           student={courses.studentId}
           setShouldDisplay={props.setShouldDisplay}
           setAddFormType={props.setAddFormType}
+          setCourseToUpdate={props.setCourseToUpdate}
         />
       )}
     </section>
