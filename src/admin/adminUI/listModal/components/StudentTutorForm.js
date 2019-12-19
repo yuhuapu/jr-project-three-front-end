@@ -20,7 +20,7 @@ function StudentTutorForm(props) {
         users.map(user => (
           <TutorStudentRow
             key={user.email}
-            name={user.firstName + user.lastName}
+            name={user.firstName + " " +user.lastName}
             email={user.email}
             phone={user.mobile}
           />
