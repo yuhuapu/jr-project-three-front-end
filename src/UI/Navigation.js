@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { NavLink } from "react-router-dom";
 
 import "./styles/navigationStyle.scss";
 import logo from "../resource/img/logo.png";
@@ -9,9 +8,13 @@ import loginIcon from "../resource/img/login-icon.png";
 import signupIcon from "../resource/img/signup.svg";
 
 const Navigation = props => {
-    
   const showLoginDialog = () => {
     props.setShouldLoginDisplay(true);
+    document.body.style.overflow = "hidden";
+  };
+
+  const showSignupDialog = () => {
+    props.setShouldSignupDisplay(true);
     document.body.style.overflow = "hidden";
   };
 
@@ -22,19 +25,17 @@ const Navigation = props => {
       </Link>
       <ul className="nav nav-pills">
         <li className="nav-item">
-            <button className="nav-button" onClick={showLoginDialog}>
-              <img src={loginIcon} className="form-icon" alt="loginIcon" />
-              <span>Login</span>
-            </button>
+          <button className="nav-button" onClick={showLoginDialog}>
+            <img src={loginIcon} className="form-icon" alt="loginIcon" />
+            <span>Login</span>
+          </button>
         </li>
 
         <li className="nav-item">
-          <Link to="/signup">
-            <button className="nav-button">
-              <img src={signupIcon} className="form-icon" alt="signupIcon" />
-              <span>Signup</span>
-            </button>
-          </Link>
+          <button className="nav-button" onClick={showSignupDialog}>
+            <img src={signupIcon} className="form-icon" alt="signupIcon" />
+            <span>Sign Up</span>
+          </button>
         </li>
       </ul>
     </nav>

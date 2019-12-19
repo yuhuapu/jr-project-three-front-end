@@ -76,7 +76,7 @@ const AddCourse = props => {
                     </div>
 
                     <div className="col-md-3">
-                        <input name="code" type="text" className="course-code" placeholder="Couese Code" onChange={handleCourseInput} />
+                        <input name="code" type="text" className="course-code" placeholder="Course Code" onChange={handleCourseInput} />
                     </div>
                 </div>
 

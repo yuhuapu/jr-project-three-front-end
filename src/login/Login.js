@@ -10,9 +10,11 @@ const Login = props => {
   const [loginStates, setLoginStates] = useState({
     email: "",
     password: "",
-    loginOption: "",
+    role: "",
     isLoading: false,
-    isErrShowing: false
+    isErrShowing: false,
+    history: props.history,
+    location: props.location
   });
 
   const handleChange = event => {
@@ -24,10 +26,9 @@ const Login = props => {
   const closeModal = () => {
     setLoginStates({
       ...loginStates,
-      loginOption: "",
+      role: "",
       isLoading: false,
-      isErrShowing: false,
-      shouldLoginDisplay: false
+      isErrShowing: false
     });
     props.setShouldLoginDisplay(false);
     document.body.style.overflow = "";
@@ -42,7 +43,7 @@ const Login = props => {
     } else {
       document.getElementById("Student").className = "role-not-selected";
     }
-    setLoginStates({ ...loginStates, loginOption: event.target.id });
+    setLoginStates({ ...loginStates, role: event.target.id });
     event.preventDefault();
   };
 
@@ -57,25 +58,25 @@ const Login = props => {
         .then(token => {
           setToken(token);
 
-          const DEFAULT_URL = loginStates.loginOption === "Student"? STUDENT_DASHBOARD_URL : TUTOR_DASHBOARD_URL;
+          const DEFAULT_URL = loginStates.role === "Student"? STUDENT_DASHBOARD_URL : TUTOR_DASHBOARD_URL;
 
           setLoginStates({
             ...loginStates,
-            loginOption: "",
+            role: "",
             isLoading: false,
             isErrShowing: false
           });
           props.setShouldLoginDisplay(false);
 
-          const locationState = props.location.state; 
+          const locationState = loginStates.location.state; 
           const redirectTo = (locationState && locationState.from) || DEFAULT_URL;
           
-          props.history.replace(redirectTo);
+          loginStates.history.replace(redirectTo);
         })
         .catch(() => {
           setLoginStates({
             ...loginStates,
-            loginOption: "",
+            role: "",
             isLoading: false,
             isErrShowing: true
           });
