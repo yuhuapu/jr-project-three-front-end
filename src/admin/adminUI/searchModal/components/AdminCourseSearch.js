@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from "react";
 import { fetchCourses } from "../../../../utils/api/course";
 
-import Navigation from "../../../../UI/Navigation";
+import AdminNav from "../../AdminNav";
 import DashMenu from "../../DashMenu";
 import CourseForm from "../../listModal/components/CourseForm";
 import PageNumber from "../../listModal/components/PageNumber";
@@ -23,11 +23,13 @@ const AdminCourseSearch = () => {
       setSearchName("Course");
     }, []);
 
+ 
+
   return (
     <div className="row main-container">
       <div className="col-md-2" />
       <div className="col-md-8">
-        <Navigation />
+      <AdminNav />
         <DashMenu
           menuText={ButtonText.courseText}
           styleText={ButtonText.styleText[1]}
