@@ -61,7 +61,7 @@ const AddTutor = props => {
 
     return (
         <div className="add-modal">
-            <form className="addCouese-container">
+            <form className="addCourse-container">
                 <h4>Tutor Info</h4>
                 <hr />
                 <div className="row">

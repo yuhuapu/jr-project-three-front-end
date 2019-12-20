@@ -4,8 +4,8 @@ const API_STUDENT_URL = '/students';
 const getApiStudentsUrlWithName = name => `${API_STUDENT_URL}/${name}`;
 const getApiStudentUrlWithId = id => `${API_STUDENT_URL}/${id}`;
 
-export const createStudent = course => {
-    return post(API_STUDENT_URL, course).then(res => res.data.data);
+export const createStudent = student => {
+    return post(API_STUDENT_URL, student).then(res => res.data.data);
 };
 
 export const fetchStudents = () => {

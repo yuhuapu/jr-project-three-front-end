@@ -119,7 +119,7 @@ const AddCourse = props => {
 
     return (
         <div className="add-modal">
-            <form className="addCouese-container">
+            <form className="addCourse-container">
                 <h4>Course Info</h4>
                 <div className="row">
                     <div className="col-md-3">
@@ -131,7 +131,7 @@ const AddCourse = props => {
                     </div>
 
                     <div className="col-md-3">
-                        <input name="code" type="text" className="course-code" placeholder="Couese Code" onChange={handleCourseInput} />
+                        <input name="code" type="text" className="course-code" placeholder="Course Code" onChange={handleCourseInput} />
                     </div>
                 </div>
 

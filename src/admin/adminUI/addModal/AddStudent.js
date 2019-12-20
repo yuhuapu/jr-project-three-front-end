@@ -78,7 +78,7 @@ const AddStudent = props => {
 
     return (
         <div className="add-modal">
-            <form className="addCouese-container">
+            <form className="addCourse-container">
                 <h4>Student Info</h4>
                 <hr />
                 <div className="row">
