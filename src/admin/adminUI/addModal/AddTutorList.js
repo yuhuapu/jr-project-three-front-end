@@ -13,7 +13,7 @@ const AddTutorList = props => {
 
     return (
         <div className="add-modal">
-            <form className="addCouese-container">
+            <form className="addCourse-container">
                 <h4>Tutor List</h4>
                 <section className="course-list">
                     <div className="row">
