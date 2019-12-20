@@ -1,6 +1,5 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { fetchCourses } from "../../../../utils/api/course";
-
 
 import AdminNav from '../../AdminNav';
 import Footer from '../../../../UI/Footer';
@@ -15,8 +14,8 @@ const AdminCourseList = props => {
     const [addFormType, setAddFormType] = useState("");
     const [courses, setCourses] = useState([]);
     const [searchName, setSearchName] = useState("");
-    const [adminRestProps] = useState(props);
-  
+    const [courseToUpdate, setCourseToUpdate]=useState();
+
     useEffect(() => {
         fetchCourses().then(res => setCourses(res.data));
         setSearchName("Course");
@@ -33,19 +32,21 @@ const AdminCourseList = props => {
                     setShouldDisplay={setShouldDisplay}
                     setAddFormType={setAddFormType}
                 />
-                <CourseForm 
-                    courses={courses} 
-                    searchName={searchName} 
+                <CourseForm
+                    courses={courses}
+                    searchName={searchName}
+                    setShouldDisplay={setShouldDisplay}
+                    setAddFormType={setAddFormType}
+                    setCourseToUpdate={setCourseToUpdate}
                 />
                 <PageNumber />
                 <Footer />
             </div>
-            <div className="col-md-2" />
             <SwitchAddForm
                 shouldDisplay={shouldDisplay}
                 onCloseButtonClick={setShouldDisplay}
                 addFormType={addFormType}
-                adminRestProps={adminRestProps}
+                courseToUpdate={courseToUpdate}
             />
         </div>
     );

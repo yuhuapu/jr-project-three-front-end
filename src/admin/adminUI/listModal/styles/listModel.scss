@@ -8,15 +8,16 @@
     text-align: center;
 }
 
-button.delete,
-button.edit
- {
-    font-size: 14px;
-    margin: 0;
-    padding: 0;
-    border: 1px solid transparent;  
-    outline: none;  
-
+.edit-button{
+    margin: 0 10px 10px 0;
+    background-color: white;
+    padding: 5px 7px 5px 7px;
+    border: solid black 1px;
+    border-radius: 5px;
+    &:hover{
+        color: white;
+        background-color: black;
+    }
 }
 
 .course-form-title {

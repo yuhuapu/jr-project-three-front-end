@@ -30,8 +30,8 @@ const AddCourseList = props => {
                             endDate={course.endDate}
                             courseIdList={courseIdList}
                             setcourseIdList={setcourseIdList}
-                            courseNames={props.courseNames}
-                            setCourseNames={props.setCourseNames}
+                            addedCourses={props.addedCourses}
+                            setAddedCourses={props.setAddedCourses}
                         />
                     ))}
                 </section>

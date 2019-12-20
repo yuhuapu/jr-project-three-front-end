@@ -38,20 +38,23 @@ function StudentTutorForm(props) {
         <span className="col-md-2 course-title-tutor">Phone</span>
       </div>
       <hr className="line-top" />
-      {
-        users.map(user => (
+      {users.map(user => (
           <TutorStudentRow
             key={user.email}
-            name={user.firstName + " " +user.lastName}
             id={user._id}
+            name={user.firstName + ' ' + user.lastName}
             email={user.email}
             phone={user.mobile}
+            setShouldDisplay={props.setShouldDisplay}
+            setAddFormType={props.setAddFormType}
+            searchName={props.searchName}
+            setStudentToUpdate={props.setStudentToUpdate}
+            setTutorToUpdate={props.setTutorToUpdate}
             setDeleteName={setDeleteName}
             isDeleting={isDeleting}
             setIsDeleting={setIsDeleting}
           />
-        ))
-       }
+        ))}
     </section>
   );
 }

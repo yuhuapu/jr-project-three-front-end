@@ -36,13 +36,16 @@ const CourseForm = props => {
         courses.map(course => (
           <CourseRow
             key={course._id}
+            code={course._id}
             name={course.courseName}
-            code={course.code}
             deleteName={course._id}
             startDate={course.startDate.slice(0,10)}
             endDate={course.endDate.slice(0,10)}
             tutor={course.tutorId.length}
             student={course.studentId.length}
+            setShouldDisplay={props.setShouldDisplay}
+            setAddFormType={props.setAddFormType}
+            setCourseToUpdate={props.setCourseToUpdate}
             setDeleteName={setDeleteName}
             isDeleting={isDeleting}
             setIsDeleting={setIsDeleting}
@@ -51,8 +54,14 @@ const CourseForm = props => {
       ) : (
         <CourseRow
           key={courses._id}
-          name={courses._id}
-          code={courses.code}
+          code={courses._id}
+          name={courses.courseName}
+          date={courses.coursePeriod}
+          tutor={courses.tutorId}
+          student={courses.studentId}
+          setShouldDisplay={props.setShouldDisplay}
+          setAddFormType={props.setAddFormType}
+          setCourseToUpdate={props.setCourseToUpdate}
           deleteName={courses._id}
           setDeleteName={setDeleteName}
           isDeleting={isDeleting}

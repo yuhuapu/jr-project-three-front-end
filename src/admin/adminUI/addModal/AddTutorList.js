@@ -31,8 +31,8 @@ const AddTutorList = props => {
                             id={user._id}
                             tutorIdList={tutorIdList}
                             setTutorIdList={setTutorIdList}
-                            tutorNames={props.tutorNames}
-                            setTutorNames={props.setTutorNames}
+                            addedTutors={props.addedTutors}
+                            setAddedTutors={props.setAddedTutors}
                         />
                     ))}
                 </section>
@@ -40,17 +40,20 @@ const AddTutorList = props => {
                     <div className="col-md">
                         <div className="submit-button-container">
                             <button
-                                onClick={(e) => { 
-                                    e.preventDefault(); 
+                                onClick={(e) => {
+                                    e.preventDefault();
                                     props.onCloseButtonClick(false);
-                                    props.handleTutorIDs(tutorIdList); 
+                                    props.handleTutorIDs(tutorIdList);
                                     props.setTutorNumber(tutorIdList.length);
                                 }}
                                 className="submit-button">
                                 Confirm
                                 </button>
                             <button
-                                onClick={(e) => { e.preventDefault(); props.onCloseButtonClick(false) }}
+                                onClick={(e) => { 
+                                    e.preventDefault(); 
+                                    props.onCloseButtonClick(false); 
+                                }}
                                 className="submit-button">
                                 Cancel
                                 </button>

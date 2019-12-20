@@ -1,27 +1,16 @@
-import React, { useState } from 'react';
-import { createTutor } from '../../../utils/api/tutor';
-import './styles/addModal.scss';
-import SwitchAddForm from './SwitchAddForm';
-import AddFormsButton from './addFormsButton';
+import React, { useState, useEffect } from 'react';
+import { updateTutor, fetchTutorById } from '../../../utils/api/tutor';
+import '../addModal/styles/addModal.scss';
+import SwitchAddForm from '../addModal/SwitchAddForm';
 
-const AddTutor = props => {
-    const adminRestProps = props.adminRestProps;
+const EditTutor = props => {
     const [shouldDisplay, setShouldDisplay] = useState(false);
     const [addFormType, setAddFormType] = useState('');
-    const [tutorStates, setTutorStates] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        dateOfBirth: '',
-        gender: '',
-        mobile: '',
-        note: '',
-        courses: [],
-    });
+    const [tutorStates, setTutorStates] = useState({});
 
-    const [addedCourses, setAddedCourses] = useState([]);
-    const [coursesToDelete, setCourseToDelete] = useState([]);
-    const [courseNumber, setCourseNumber] = useState(0);
+    useEffect(()=>{
+        fetchTutorById(props.tutorToUpdate).then(res => setTutorStates(res.data));
+    }, [props.tutorToUpdate]);
 
     const handleTutorInput = event => {
         const key = event.target.name;
@@ -33,30 +22,12 @@ const AddTutor = props => {
         setTutorStates({...tutorStates, courses: courseIDs});
     };
     
-    const handleCreate = event => {
+    const handleUpdate = event => {
         event.preventDefault();
-        const student = { ...tutorStates };
-        createTutor(student).then(() => {
-            adminRestProps.history.push('/admin/dashboard/tutorlist');
+        const tutor = tutorStates._id;
+        updateTutor(tutor, tutorStates).then(() => {
+            window.location.reload();
         });
-    };
-
-    const AddedCourses = () => {
-        if (courseNumber > 0) {
-            return (addedCourses.map(addedCourse => (
-                <AddFormsButton
-                    key={addedCourse.courseID}
-                    setToDelete={setCourseToDelete}
-                    deleteTargetArray={coursesToDelete}
-                    addedID={addedCourse.courseID}
-                >
-                    {addedCourse.name}
-                </AddFormsButton>
-            )
-            ));
-        } else {
-            return null;
-        }
     };
 
     return (
@@ -67,12 +38,24 @@ const AddTutor = props => {
                 <div className="row">
                     <div className="col-md-6">
                         <p>First Name</p>
-                        <input name="firstName" type="text" className="input-boxs" onChange={handleTutorInput} />
+                        <input 
+                        name="firstName" 
+                        type="text" 
+                        className="input-boxs" 
+                        onChange={handleTutorInput} 
+                        value={tutorStates.firstName}
+                        />
                     </div>
 
                     <div className="col-md-6">
                         <p>Last Name</p>
-                        <input name="lastName" type="text" className="input-boxs" onChange={handleTutorInput} />
+                        <input 
+                        name="lastName" 
+                        type="text" 
+                        className="input-boxs" 
+                        onChange={handleTutorInput} 
+                        value={tutorStates.lastName}
+                        />
                     </div>
                 </div>
 
@@ -104,7 +87,15 @@ const AddTutor = props => {
 
                     <div className="col-md-6">
                         <p>DOB</p>
-                        <input name="dateOfBirth" type="text" placeholder="Day/Month/Year" className="input-boxs" onFocus={(e) => e.target.type = 'date'} onChange={handleTutorInput} />
+                        <input 
+                        name="dateOfBirth" 
+                        type="text" 
+                        placeholder="Day/Month/Year" 
+                        className="input-boxs" 
+                        onFocus={(e) => e.target.type = 'date'} 
+                        onChange={handleTutorInput} 
+                        value={tutorStates.dateOfBirth}
+                        />
                     </div>
                 </div>
 
@@ -113,12 +104,25 @@ const AddTutor = props => {
                 <div className="row">
                     <div className="col-md-6">
                         <p>Mobile</p>
-                        <input name="mobile" type="text" className="input-boxs" onChange={handleTutorInput} />
+                        <input 
+                        name="mobile" 
+                        type="text" 
+                        className="input-boxs" 
+                        onChange={handleTutorInput} 
+                        value={tutorStates.mobile}
+                        />
                     </div>
 
                     <div className="col-md-6">
                         <p>Email</p>
-                        <input name="email" type="text" className="input-boxs" onChange={handleTutorInput} />
+                        <input 
+                        name="email" 
+                        type="text" 
+                        className="input-boxs" 
+                        disabled={true}
+                        onChange={handleTutorInput} 
+                        value={tutorStates.email}
+                        />
                     </div>
                 </div>
 
@@ -132,7 +136,12 @@ const AddTutor = props => {
 
                 <div className="row">
                     <div className="col-md-12">
-                        <textarea name="note" className="description-box" onChange={handleTutorInput} />
+                        <textarea
+                         name="note" 
+                         className="description-box" 
+                         onChange={handleTutorInput} 
+                         value={tutorStates.note}
+                         />
                     </div>
                 </div>
 
@@ -144,12 +153,8 @@ const AddTutor = props => {
                     </div>
                     <div className="col-md-7" />
                     <div className="col-md-2">
-                        <p>Total: {courseNumber} </p>
+                        <p>Total: </p>
                     </div>
-                </div>
-
-                <div className="row">
-                    <AddedCourses />
                 </div>
 
                 <div className="row">
@@ -174,7 +179,7 @@ const AddTutor = props => {
                 <div className="row">
                     <div className="col-md">
                         <div className="submit-button-container">
-                            <button onClick={handleCreate} className="submit-button" >Add</button>
+                        <button onClick={handleUpdate} className="submit-button" >Update</button>
                             <button onClick={(e) => { e.preventDefault(); props.onCloseButtonClick(false) }} className="submit-button">Cancel</button>
                         </div>
                     </div>
@@ -185,12 +190,9 @@ const AddTutor = props => {
             onCloseButtonClick={setShouldDisplay}
             addFormType={addFormType}
             handleCourseIDs={handleCourseIDs}
-            addedCourses={addedCourses}
-            setAddedCourses={setAddedCourses}
-            setCourseNumber={setCourseNumber}
             />
         </div>
     );
 }
 
-export default AddTutor;
+export default EditTutor;

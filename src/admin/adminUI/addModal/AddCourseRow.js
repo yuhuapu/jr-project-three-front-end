@@ -7,8 +7,8 @@ const AddCourseRow = props => {
     const endDate = new Date(props.endDate).toLocaleDateString();
     const courseIdList = props.courseIdList;
     const setcourseIdList = props.setcourseIdList;
-    const courseNames = props.courseNames;
-    const setCourseNames = props.setCourseNames;
+    const addedCourses = props.addedCourses;
+    const setAddedCourses = props.setAddedCourses;
     const [buttonClass, setButtonClass] = useState("edit-button")
     const [isButtonClicked, setButtonClicked] = useState(false); 
 
@@ -22,7 +22,7 @@ const AddCourseRow = props => {
             onClick = {(e)=>{
                 e.preventDefault();
                 setcourseIdList(courseIdList.concat(id));
-                setCourseNames(courseNames.concat(props.courseName))
+                setAddedCourses(addedCourses.concat({name: courseName, courseID: id}))
                 setButtonClass("button-clicked");
                 setButtonClicked(true);
             }}
