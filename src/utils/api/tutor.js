@@ -12,9 +12,13 @@ export const fetchTutors = () => {
   return get(API_TUTOR_URL);
 };
 
+export const fetchTutorById = id => {
+  const url = getApiTutorUrlWithId(id);
+  return get(url);
+};
+
 export const fetchTutorsByName = name => {
   const url = getApiTutorsUrlWithName(name);
-  console.log('fetch tutors by name');
   return get(url);
 };
 

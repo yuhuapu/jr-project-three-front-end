@@ -30,7 +30,7 @@ const handleClick = (event) => {
       </button>
         </span>
         <span className="col-md-1">
-        <button className="delete col-md-1" value= {props.code} loading={props.isDeleting}
+        <button className="edit-button" value= {props.code} loading={props.isDeleting}
           onClick={handleClick}>Delete</button>
         </span>
       </div>

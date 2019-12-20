@@ -38,7 +38,6 @@ const CourseForm = props => {
             key={course._id}
             code={course._id}
             name={course.courseName}
-            code={course.code}
             deleteName={course._id}
             startDate={course.startDate.slice(0,10)}
             endDate={course.endDate.slice(0,10)}

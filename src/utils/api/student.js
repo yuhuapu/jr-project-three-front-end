@@ -12,6 +12,11 @@ export const fetchStudents = () => {
   return get(API_STUDENT_URL);
 };
 
+export const fetchStudentById = id => {
+  const url = getApiStudentUrlWithId(id);
+  return get(url)
+};
+
 export const fetchStudentsByName = name => {
   const url = getApiStudentsUrlWithName(name);
   return get(url)
