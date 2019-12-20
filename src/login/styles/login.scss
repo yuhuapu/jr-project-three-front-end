@@ -13,9 +13,9 @@
     position: relative;
     background-color: white;
     border-radius: 5px;
-    padding: 2%;
-    width: 20%;
-    height: 40%;
+    padding: 40px;
+    width: 500px;
+    height: 400px;
 
     .closeButton {
       position: absolute;
@@ -26,8 +26,7 @@
 
     img {
       display: block;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 40px auto 20px auto;
       width: 30px;
       height: 30px;
     }

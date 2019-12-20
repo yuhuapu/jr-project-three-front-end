@@ -109,7 +109,7 @@ const Login = props => {
                 className={`form-control ${inputError}`}
                 name="email"
                 id="email"
-                placeholder="Username"
+                placeholder="Email"
               />
             </div>
             <div className="form-group">

@@ -13,9 +13,9 @@
     position: relative;
     background-color: white;
     border-radius: 5px;
-    padding: 5%;
-    width: 35%;
-    height: 70%;
+    padding: 40px;
+    width: 500px;
+    height: 650px;
 
     .content {
         margin: 20px 5px 0px 5px;
@@ -23,8 +23,7 @@
 
     img {
         display: block;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 20px auto 20px auto;
         width: 40px;
         height: 40px;
       }
@@ -40,10 +39,18 @@
         justify-content: space-between;
       }
     
+    .description-box{
+        width: 100%;
+        
+        border: none;
+        border-radius: 5px;
+        background-color: rgba(0, 0, 0, 0.05);
+    }
       #signup {
         display: flex;
         justify-content: center;
-    
+        margin-top: 10px;
+
         button {
           border: none;
           width: 30%;
@@ -59,6 +66,28 @@
           }
         }
       }
+
+      .role-not-selected {
+        width: 45%;
+        border-style: solid;
+        border-radius: 5px;
+        padding: 3px 15px;
+        background-color: white;
+      }
+      .role-selected {
+        width: 45%;
+        border-style: solid;
+        border-radius: 5px;
+        border-width: bold;
+        padding: 3px 15px;
+        background-color: white;
+      }      
+      .spinner-location {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
   }
 
   .closeButton {

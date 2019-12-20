@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { createStudent } from "../utils/api/student";
+import { createTutor } from '../utils/api/tutor';
 import signupIcon from "../resource/img/signup.svg";
 import "./styles/signup.scss";
 
 const Signup = props => {
+  const { setShouldSignupDisplay } = props;
+
   const [signupStates, setSignupStates] = useState({
     firstName: "",
     lastName: "",
@@ -14,7 +17,7 @@ const Signup = props => {
     gender: "",
     mobile: "",
     note: "",
-    courses: "",
+    courses: [],
     role: "",
     isLoading: false,
     isErrShowing: false,
@@ -34,9 +37,10 @@ const Signup = props => {
     // if value is not blank, then test the regex
 
     if (event.target.value === '' || re.test(event.target.value)) {
-       setSignupStates({...signupStates, mobile: event.target.value})
-    }    
+      setSignupStates({ ...signupStates, mobile: event.target.value })
+    }
   }
+
   const closeModal = () => {
     setSignupStates({
       ...signupStates,
@@ -48,25 +52,79 @@ const Signup = props => {
     document.body.style.overflow = "";
   };
 
+  const chooseRole = event => {
+    event.target.className = "";
+
+    event.target.className = "role-selected";
+    if (event.target.id === "Student") {
+      document.getElementById("Tutor").className = "role-not-selected";
+    } else {
+      document.getElementById("Student").className = "role-not-selected";
+    }
+    setSignupStates({ ...signupStates, role: event.target.id });
+    event.preventDefault();
+  };
+
   const signupUser = event => {
     setSignupStates({ ...signupStates, isLoading: true });
     event.preventDefault();
   };
 
+  function signupStudent () {
+    const student = {
+      firstName: signupStates.firstName,
+      lastName: signupStates.lastName,
+      email: signupStates.email,
+      password: signupStates.password,
+      dateOfBirth: signupStates.dateOfBirth,
+      gender: signupStates.gender,
+      mobile: signupStates.mobile,
+      note: signupStates.note,
+      courses: signupStates.courses
+    };
+    createStudent(student).then(data => {
+
+      setSignupStates({
+        ...signupStates,
+        role: "",
+        isLoading: false
+      });
+
+      setShouldSignupDisplay(false);
+    });
+  }
+
+  function signupTutor() {
+    const tutor = {
+      firstName: signupStates.firstName,
+      lastName: signupStates.lastName,
+      email: signupStates.email,
+      password: signupStates.password,
+      dateOfBirth: signupStates.dateOfBirth,
+      gender: signupStates.gender,
+      mobile: signupStates.mobile,
+      note: signupStates.note,
+      courses: signupStates.courses    
+    };
+
+    createTutor(tutor).then(data => {
+      setSignupStates({
+        ...signupStates,
+        role: "",
+        isLoading: false
+      });
+
+      setShouldSignupDisplay(false);     
+    });
+  }
+
   useEffect(() => {
     if (signupStates.isLoading) {
-      const student = {
-        firstName: signupStates.firstName,
-        lastName: signupStates.lastName,
-        email: signupStates.email,
-        password: signupStates.password,
-        dateOfBirth: signupStates.dateOfBirth,
-        gender: signupStates.gender,
-        mobile: signupStates.mobile,
-        note: signupStates.note,
-        courses: signupStates.courses
-      };
-      createStudent(student).then(data => console.log(data));
+       if (signupStates.role === "Student") {
+         signupStudent();
+       } else if (signupStates.role === "Tutor") {
+         signupTutor();
+       }
     }
   }, [signupStates, props]);
 
@@ -74,6 +132,7 @@ const Signup = props => {
     return null;
   } else {
     const overlay = signupStates.isLoading ? "overlay" : "";
+    const spinner = signupStates.isLoading ? "spinner-border" : "";
 
     return (
       <div className="signup-modal">
@@ -149,26 +208,49 @@ const Signup = props => {
 
               <div className="row form-group">
                 <div className="col-md-6">
-                  <select className="form-control" name="gender">
+                  <select onChange={handleChange} className="form-control" name="gender">
                     <option>Male</option>
                     <option>Female</option>
                   </select>
                 </div>
                 <div className="col-md-6">
-                    <input
-                      name="mobile"
-                      type="text"
-                      onChange={validateMobileInput}
-                      value={signupStates.mobile}
-                      className="form-control"
-                      id="mobile"
-                      placeholder="mobile"
-                    />
+                  <input
+                    name="mobile"
+                    type="text"
+                    onChange={validateMobileInput}
+                    value={signupStates.mobile}
+                    className="form-control"
+                    id="mobile"
+                    placeholder="mobile"
+                  />
                 </div>
               </div>
-
+              <div className="row">
+                <div className="col-md-12">
+                  <textarea name="note" className="description-box" onChange={handleChange} placeholder="Note" />
+                </div>
+              </div>
+              <div className="options">
+                <button
+                  id="Student"
+                  className="role-not-selected"
+                  onClick={chooseRole}
+                >
+                  I am a student
+              </button>
+                <button
+                  id="Tutor"
+                  className="role-not-selected"
+                  onClick={chooseRole}
+                >
+                  I am a tutor
+              </button>
+              </div>
               <div id="signup">
                 <button onClick={signupUser}>Sign Up</button>
+              </div>
+              <div className="spinner-location">
+                <div className={spinner}></div>
               </div>
             </div>
           </div>
